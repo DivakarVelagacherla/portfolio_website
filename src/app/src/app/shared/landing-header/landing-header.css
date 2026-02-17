@@ -1,0 +1,23 @@
+.landing-header-container {
+    display: flex;
+    padding: 16px 48px;
+}
+
+.logo {
+    font-size: 21px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+}
+
+.spacer {
+    flex: 1
+}
+
+.landing-nav{
+    display: flex;
+    gap: 48px;
+}
+
+.landing-nav a {
+    font-size: 14px;
+}
