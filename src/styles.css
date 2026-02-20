@@ -2,6 +2,7 @@
     --color-text-primary: #1d1d1f;
     --color-text-secondary: #6e6e73;
     --color-text-hover: #000;
+    --title-color: #86868b;
     --gradient-apple: linear-gradient(90deg,#0090F7 8%,#BA62FC,#F2416B,#F55600);
 }
 
@@ -31,4 +32,11 @@ a:hover {
   background-image: var(--gradient-apple);
   background-clip: text;
   -webkit-text-fill-color: rgba(0, 0, 0, 0);
+}
+
+.line-break {
+  height: 1px;
+  width: 100%;
+  background-color: black;
+  opacity: 20%;
 }
