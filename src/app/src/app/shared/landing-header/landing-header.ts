@@ -7,6 +7,4 @@ import { RouterLink } from '@angular/router';
   templateUrl: './landing-header.html',
   styleUrl: './landing-header.css',
 })
-export class LandingHeader {
-
-}
+export class LandingHeader {}
