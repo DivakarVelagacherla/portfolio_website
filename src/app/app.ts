@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { LandingHeader } from "./src/app/shared/landing-header/landing-header";
+import { LandingHeader } from './shared/landing-header/landing-header';
+import { TitleSection } from './core/title-section/title-section';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, LandingHeader],
+  imports: [RouterOutlet, LandingHeader, TitleSection],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
 })
-export class App {
-}
+export class App {}
