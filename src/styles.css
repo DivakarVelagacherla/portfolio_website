@@ -3,6 +3,8 @@
     --color-text-secondary: #6e6e73;
     --color-text-hover: #000;
     --title-color: #86868b;
+    --card-bg-color: rgb(245, 245, 247);
+    --accent-color: #0071e3;
     --gradient-apple: linear-gradient(90deg,#0090F7 8%,#BA62FC,#F2416B,#F55600);
 }
 
@@ -29,17 +31,6 @@ a:hover {
   color: var(--color-text-hover);
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(60px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0px);
-  }
-}
-
 .apple-gradient {
   background-image: var(--gradient-apple);
   background-clip: text;
@@ -59,7 +50,24 @@ a:hover {
   padding-bottom: 10px;
 
   opacity: 0;
-  animation: fadeIn 5s ease 1s forwards;
+  animation: fadeIn 3s ease 1s forwards;
+}
+
+.line-break {
+  height: 1px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
 }
 
 @keyframes fadeIn{
@@ -69,9 +77,14 @@ a:hover {
   to {opacity: 1;}
 }
 
-.line-break {
-  height: 1px;
-  width: 100%;
-  background-color: black;
-  opacity: 20%;
+@keyframes fadeLeft {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
 }

@@ -1,0 +1,11 @@
+<div class="currently-card">
+    <h1 class="currently-title">CURRENTLY MASTERING</h1>
+    <p class="currently-focus">Data Structures & Algorithms</p>
+    <p class="problems-solved">Leetcode Problems</p>
+    <div class="progress-container">
+        {{problemsSolved}}<span>/300</span>
+        <div class="progress-bar">
+            <div class="progress-fill" [style.width.%]="width"></div>
+        </div>
+    </div>
+</div>
