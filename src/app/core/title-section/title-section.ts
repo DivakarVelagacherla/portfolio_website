@@ -7,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrl: './title-section.css',
 })
 export class TitleSection {
-
+  name: string = 'DIVAKAR VELAGACHERLA';
+  designation: string = 'Software Engineer';
+  profileCaption: string =
+    'Building scalable backend systems with purpose-driven technology choices';
 }

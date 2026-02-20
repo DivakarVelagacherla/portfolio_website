@@ -16,6 +16,7 @@ body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: var(--color-text-primary);
     font-size: 17px;
+    -webkit-font-smoothing: antialiased;
 }
 
 a {
@@ -28,10 +29,44 @@ a:hover {
   color: var(--color-text-hover);
 }
 
-.apple-gradient{
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.apple-gradient {
   background-image: var(--gradient-apple);
   background-clip: text;
-  -webkit-text-fill-color: rgba(0, 0, 0, 0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.apple-gradient-animation{
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  background-image: var(--gradient-apple);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding-bottom: 10px;
+
+  opacity: 0;
+  animation: fadeIn 5s ease 1s forwards;
+}
+
+@keyframes fadeIn{
+  from {
+    opacity: 0;
+  }
+  to {opacity: 1;}
 }
 
 .line-break {
