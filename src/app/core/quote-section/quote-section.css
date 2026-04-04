@@ -1,0 +1,15 @@
+.quote-container {
+    margin: 20px auto;
+    animation: fadeInUp 1.0s ease 0.1s forwards;
+}
+
+.quote {
+    color: var(--color-text-secondary);
+    font-size: 21px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+}
+
+.quote-container span {
+    font-style: italic;
+}
