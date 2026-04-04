@@ -3,6 +3,7 @@
     --color-text-secondary: #6e6e73;
     --color-text-hover: #000;
     --title-color: #86868b;
+    --font-size-icon: 12px;
     --card-bg-color: rgb(245, 245, 247);
     --accent-color: #0071e3;
     --gradient-apple: linear-gradient(90deg,oklch(64.415% 0.18352 250.25) 8%,#BA62FC,#F2416B,#F55600);
@@ -65,6 +66,64 @@ a:hover {
   -webkit-text-fill-color: rgba(0,0,0,0);
   padding: 4px;
   margin: -4px;
+}
+
+.cta-logo {
+  height: 36px;
+  width: 36px;
+  transition: transform 0.3s ease;
+}
+
+.cta-logo:hover{
+  transform: scale(1.4);
+}
+
+.tooltip {
+  position: absolute;
+  background: transparent;  /* No background! */
+  padding: 6px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+  
+  /* Position */
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 10px;
+  
+  z-index: 1000;
+  
+  /* Smooth fade-in */
+  opacity: 0;
+  animation: tooltipFadeIn 0.15s ease forwards;
+}
+
+/* Gradient text! */
+.tooltip {
+  background-image: var(--gradient-apple);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Remove arrow (looks cleaner with gradient text) */
+.tooltip::after {
+  display: none;
+}
+
+/* Fade in animation */
+@keyframes tooltipFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-3px);
+  }
+  to {
+    opacity: 0.8;
+    transform: translateX(-50%) translateY(0);
+  }
 }
 
 @keyframes fadeInUp {

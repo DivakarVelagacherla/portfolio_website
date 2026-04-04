@@ -1,0 +1,17 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-github-icon',
+  imports: [],
+  templateUrl: './github-icon.html',
+  styleUrl: './github-icon.css',
+})
+export class GithubIcon {
+  githubLink: string = 'https://github.com/DivakarVelagacherla';
+  onClick(event: Event): void {
+    const confirmed = confirm('Open Github?');
+    if (!confirmed) {
+      event.preventDefault();
+    }
+  }
+}
