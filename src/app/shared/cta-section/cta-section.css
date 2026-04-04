@@ -1,0 +1,8 @@
+.cta-container {
+    margin-left: 30%;
+    margin-right: 30%;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    display: flex;
+    justify-content: space-evenly;
+}
