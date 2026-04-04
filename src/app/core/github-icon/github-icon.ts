@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './github-icon.css',
 })
 export class GithubIcon {
-
+  githubLink: string = 'https://github.com/DivakarVelagacherla';
 }

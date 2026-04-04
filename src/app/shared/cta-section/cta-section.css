@@ -6,3 +6,51 @@
     display: flex;
     justify-content: space-evenly;
 }
+
+/* Target the Angular component tags instead */
+.cta-container app-resume-icon,
+.cta-container app-linkedin-icon,
+.cta-container app-github-icon,
+.cta-container app-gmail-icon,
+.cta-container app-phone-icon,
+.cta-container app-whatsapp-icon {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Animation */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Staggered delays for each component */
+.cta-container app-resume-icon {
+  animation: slideUp 0.6s ease forwards 1s;
+}
+
+.cta-container app-linkedin-icon {
+  animation: slideUp 0.6s ease forwards 1.15s;
+}
+
+.cta-container app-github-icon {
+  animation: slideUp 0.6s ease forwards 1.3s;
+}
+
+.cta-container app-gmail-icon {
+  animation: slideUp 0.6s ease forwards 1.45s;
+}
+
+.cta-container app-phone-icon {
+  animation: slideUp 0.6s ease forwards 1.6s;
+}
+
+.cta-container app-whatsapp-icon {
+  animation: slideUp 0.6s ease forwards 1.75s;
+}
