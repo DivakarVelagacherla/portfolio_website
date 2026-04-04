@@ -7,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrl: './whatsapp-icon.css',
 })
 export class WhatsappIcon {
-
+  onClick(event: Event): void {
+    const confirmed = confirm('Whatsapp Me?');
+    if (!confirmed) {
+      event.preventDefault();
+    }
+  }
 }

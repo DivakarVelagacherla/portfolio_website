@@ -7,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrl: './phone-icon.css',
 })
 export class PhoneIcon {
-
+  onClick(event: Event): void {
+    const confirmed = confirm('Call Me?');
+    if (!confirmed) {
+      event.preventDefault();
+    }
+  }
 }

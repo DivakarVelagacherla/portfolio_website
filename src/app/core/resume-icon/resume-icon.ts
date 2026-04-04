@@ -8,5 +8,10 @@ import { CommonModule } from '@angular/common';
   styleUrl: './resume-icon.css',
 })
 export class ResumeIcon {
-  resumePath: string = '';
+  onClick(event: Event): void {
+    const confirmed = confirm('Download Resume?');
+    if (!confirmed) {
+      event.preventDefault();
+    }
+  }
 }

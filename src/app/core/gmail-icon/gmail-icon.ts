@@ -7,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrl: './gmail-icon.css',
 })
 export class GmailIcon {
-
+  onClick(event: Event): void {
+    const confirmed = confirm('Email Me?');
+    if (!confirmed) {
+      event.preventDefault();
+    }
+  }
 }

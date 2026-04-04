@@ -8,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class GithubIcon {
   githubLink: string = 'https://github.com/DivakarVelagacherla';
+  onClick(event: Event): void {
+    const confirmed = confirm('Open Github?');
+    if (!confirmed) {
+      event.preventDefault();
+    }
+  }
 }
