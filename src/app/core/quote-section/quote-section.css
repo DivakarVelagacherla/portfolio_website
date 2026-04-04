@@ -1,11 +1,12 @@
 .quote-container {
     margin: 20px auto;
-    animation: fadeInUp 1.0s ease 0.1s forwards;
+    opacity: 0;
+    animation: fadeInUp 1.0s ease 0.5s forwards;
 }
 
 .quote {
     color: var(--color-text-secondary);
-    font-size: 21px;
+    font-size: 17px;
     font-weight: 400;
     letter-spacing: 0.02em;
 }
