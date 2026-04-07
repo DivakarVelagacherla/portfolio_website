@@ -1,7 +1,7 @@
 .quote-container {
     margin: 20px auto;
     opacity: 0;
-    animation: fadeInUp 1.0s ease 0.5s forwards;
+    animation: slideUp 1.0s ease 0.5s forwards;
 }
 
 .quote {
