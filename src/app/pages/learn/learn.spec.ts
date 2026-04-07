@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ResumeIcon } from './resume-icon';
+import { Learn } from './learn';
 
-describe('ResumeIcon', () => {
-  let component: ResumeIcon;
-  let fixture: ComponentFixture<ResumeIcon>;
+describe('Learn', () => {
+  let component: Learn;
+  let fixture: ComponentFixture<Learn>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ResumeIcon]
+      imports: [Learn]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ResumeIcon);
+    fixture = TestBed.createComponent(Learn);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GmailIcon } from './gmail-icon';
+import { Home } from './home';
 
-describe('GmailIcon', () => {
-  let component: GmailIcon;
-  let fixture: ComponentFixture<GmailIcon>;
+describe('Home', () => {
+  let component: Home;
+  let fixture: ComponentFixture<Home>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [GmailIcon]
+      imports: [Home]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(GmailIcon);
+    fixture = TestBed.createComponent(Home);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

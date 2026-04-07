@@ -1,16 +1,54 @@
 import { Component } from '@angular/core';
-import { ResumeIcon } from '../../core/resume-icon/resume-icon';
-import { GithubIcon } from '../../core/github-icon/github-icon';
-import { LinkedinIcon } from '../../core/linkedin-icon/linkedin-icon';
-import { GmailIcon } from '../../core/gmail-icon/gmail-icon';
-import { PhoneIcon } from '../../core/phone-icon/phone-icon';
-import { WhatsappIcon } from '../../core/whatsapp-icon/whatsapp-icon';
-import { Tooltip } from '../../tooltip';
 
 @Component({
   selector: 'app-cta-section',
-  imports: [ResumeIcon, GithubIcon, LinkedinIcon, GmailIcon, PhoneIcon, WhatsappIcon, Tooltip],
+  imports: [],
   templateUrl: './cta-section.html',
   styleUrl: './cta-section.css',
 })
-export class CtaSection {}
+export class CtaSection {
+  githubLink: string = 'https://github.com/DivakarVelagacherla';
+  linkedinLink: string = 'https://www.linkedin.com/in/divakarvelagacherla';
+
+  onClickGitHubIcon(event: Event): void {
+    const confirmed = confirm('Open Github?');
+    if (!confirmed) {
+      event.preventDefault();
+    }
+  }
+
+  onClickResumeIcon(event: Event): void {
+    const confirmed = confirm('Download Resume?');
+    if (!confirmed) {
+      event.preventDefault();
+    }
+  }
+
+  onClickLinkedinIcon(event: Event): void {
+    const confirmed = confirm('Open Linkedin?');
+    if (!confirmed) {
+      event.preventDefault();
+    }
+  }
+
+  onClickGmailIcon(event: Event): void {
+    const confirmed = confirm('Email Me?');
+    if (!confirmed) {
+      event.preventDefault();
+    }
+  }
+
+  onClickPhoneIcon(event: Event): void {
+    const confirmed = confirm('Call Me?');
+    if (!confirmed) {
+      event.preventDefault();
+    }
+  }
+
+  onClickWhatsappIcon(event: Event): void {
+    const confirmed = confirm('Whatsapp Me?');
+    if (!confirmed) {
+      event.preventDefault();
+    }
+  }
+}

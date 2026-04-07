@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LinkedinIcon } from './linkedin-icon';
+import { Engineering } from './engineering';
 
-describe('LinkedinIcon', () => {
-  let component: LinkedinIcon;
-  let fixture: ComponentFixture<LinkedinIcon>;
+describe('Engineering', () => {
+  let component: Engineering;
+  let fixture: ComponentFixture<Engineering>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LinkedinIcon]
+      imports: [Engineering]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(LinkedinIcon);
+    fixture = TestBed.createComponent(Engineering);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

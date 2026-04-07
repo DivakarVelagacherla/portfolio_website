@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GithubIcon } from './github-icon';
+import { Photography } from './photography';
 
-describe('GithubIcon', () => {
-  let component: GithubIcon;
-  let fixture: ComponentFixture<GithubIcon>;
+describe('Photography', () => {
+  let component: Photography;
+  let fixture: ComponentFixture<Photography>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [GithubIcon]
+      imports: [Photography]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(GithubIcon);
+    fixture = TestBed.createComponent(Photography);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

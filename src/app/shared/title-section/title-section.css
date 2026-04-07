@@ -8,7 +8,7 @@
     font-weight: 400;
     font-size: 17px;
     margin-top: 48px;
-    animation: fadeInUp 0.8s ease forwards;
+    animation: slideUp 0.8s ease forwards;
 }
 
 .designation {
@@ -16,7 +16,7 @@
     display: inline-block;
     margin: 8px 0px;
     opacity: 0;
-    animation: fadeInUp 0.8s ease 0.2s forwards;
+    animation: slideUp 0.8s ease 0.2s forwards;
 }
 
 .designation span {
@@ -39,5 +39,5 @@
     line-height: 1.5;
     font-style: italic;
     opacity: 0;
-    animation: fadeInUp 0.8s ease 0.4s forwards;
+    animation: slideUp 0.8s ease 0.4s forwards;
 }
