@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { Tooltip } from '../../tooltip';
 
 @Component({
   selector: 'app-cta-section',
-  imports: [Tooltip],
+  imports: [],
   templateUrl: './cta-section.html',
   styleUrl: './cta-section.css',
 })
