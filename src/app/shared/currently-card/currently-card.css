@@ -1,5 +1,6 @@
 .currently-card {
     margin: 36px auto;
+    text-align: center;
     border-radius: 18px;
     max-width: 720px;
     padding: 54px;
@@ -65,6 +66,5 @@
 .progress-fill{
     background-color: var(--accent-color);
     height: 4px;
-    width: 0;
     transition: width 1s ease;
 }

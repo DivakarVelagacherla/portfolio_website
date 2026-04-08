@@ -10,9 +10,4 @@ import { CtaSection } from '../../shared/cta-section/cta-section';
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
-export class Home {
-  //   <app-title-section />
-  // <app-quote-section />
-  // <app-currently-card />
-  // <app-cta-section />
-}
+export class Home {}
