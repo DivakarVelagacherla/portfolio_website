@@ -1,5 +1,6 @@
 .quote-container {
     margin: 20px auto;
+    text-align: center;
     opacity: 0;
     animation: slideUp 1.0s ease 0.5s forwards;
 }

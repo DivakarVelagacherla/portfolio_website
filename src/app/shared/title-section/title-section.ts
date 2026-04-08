@@ -1,14 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { UpperCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-title-section',
-  imports: [],
+  imports: [UpperCasePipe],
   templateUrl: './title-section.html',
   styleUrl: './title-section.css',
 })
 export class TitleSection {
-  name: string = 'DIVAKAR VELAGACHERLA';
-  designation: string = 'Software Engineer';
-  profileCaption: string =
-    'Building scalable backend systems with purpose-driven technology choices';
+  @Input() name: string = '';
+  @Input() pageTitle: string = '';
+  @Input() pageCaption: string = '';
 }
