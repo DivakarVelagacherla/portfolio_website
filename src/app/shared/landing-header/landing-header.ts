@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { ThemeService } from '../theme.service';
 
 @Component({
   selector: 'app-landing-header',
@@ -7,4 +8,6 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   templateUrl: './landing-header.html',
   styleUrl: './landing-header.css',
 })
-export class LandingHeader {}
+export class LandingHeader {
+  theme = inject(ThemeService);
+}

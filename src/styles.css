@@ -6,7 +6,10 @@
     --font-size-icon: 12px;
     --card-bg-color: rgb(245, 245, 247);
     --accent-color: #0071e3;
-    --gradient-apple: linear-gradient(90deg,oklch(64.415% 0.18352 250.25) 8%,#BA62FC,#F2416B,#F55600);
+    --gradient-apple-red: linear-gradient(90deg,oklch(64.415% 0.18352 250.25) 8%,#BA62FC,#F2416B,#F55600);
+    --gradient-apple-blue: linear-gradient(360deg, oklch(0.77 0.09 240.14) 30%, #028cdf, #1b8fe7, #5bb5cf);
+    /* linear-gradient(360deg, oklch(0.77 0.09 240.14) 30%, #028cdf, #1b8fe7, #5bb5cf);
+    linear-gradient(360deg, oklch(0.77 0.09 240.14) 30%, #028cdf, #008efa, #005cff) */
 }
 
 * {
@@ -33,7 +36,7 @@ a:hover {
 }
 
 .apple-gradient {
-  background-image: var(--gradient-apple);
+  background-image: var(--page-gradient, var(--gradient-apple-red));
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -44,7 +47,7 @@ a:hover {
   top: 0;
   left: 0;
 
-  background-image: var(--gradient-apple);
+  background-image: var(--page-gradient, var(--gradient-apple-red));
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -91,17 +94,11 @@ a:hover {
   animation: tooltipFadeIn 0.15s ease forwards;
 }
 
-/* Gradient text! */
-.tooltip {
-  background-image: var(--gradient-apple);
+.link-active {
+  background-image: var(--page-gradient, var(--gradient-apple-red));
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-
-/* Remove arrow (looks cleaner with gradient text) */
-.tooltip::after {
-  display: none;
 }
 
 /* Fade in animation */
