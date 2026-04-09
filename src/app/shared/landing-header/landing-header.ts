@@ -1,4 +1,4 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { ThemeService } from '../theme.service';
 
@@ -10,5 +10,4 @@ import { ThemeService } from '../theme.service';
 })
 export class LandingHeader {
   theme = inject(ThemeService);
-  @Input() logo: string = 'DV';
 }
