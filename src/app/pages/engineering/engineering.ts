@@ -4,10 +4,12 @@ import { ThemeService } from '../../shared/theme.service';
 import { QuoteEngineering } from '../../core/quote-engineering/quote-engineering';
 import { EngineeringSummary } from '../../core/engineering-summary/engineering-summary';
 import { Dashboard } from '../../core/dashboard/dashboard';
+import { Button } from '../../shared/button/button';
+import { ButtonInvert } from '../../shared/button-invert/button-invert';
 
 @Component({
   selector: 'app-engineering',
-  imports: [TitleSection, QuoteEngineering, EngineeringSummary, Dashboard],
+  imports: [TitleSection, QuoteEngineering, EngineeringSummary, Dashboard, Button, ButtonInvert],
   templateUrl: './engineering.html',
   styleUrl: './engineering.css',
 })
