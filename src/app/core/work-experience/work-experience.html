@@ -1,10 +1,10 @@
+<div class="experience-heading">Experience</div>
 <div class="work-container">
-    <div class="experience-heading">Experience</div>
     <div class="experience-group"
         *ngFor="let experience of workExperiences; trackBy: trackByExperienceId">
-        <span class="experience-date">{{experience.startDate | date: 'MMMM yyyy'}} &mdash; {{experience.endDate ? (experience.endDate | date: 'MMM-yyyy') : 'Present'}}</span>
-        <div class="experience-role">{{experience.role}}</div>
-        <div class="experience-company">{{experience.companyName}}</div>
+        <span class="experience-date">{{experience.startDate | date: 'MMMM yyyy'}} &mdash; {{experience.endDate ? (experience.endDate | date: 'MMMM yyyy') : 'Present'}}</span>
+        <div class="experience-role">{{experience.role | titlecase}}</div>
+        <div class="experience-company">{{experience.companyName | titlecase}}</div>
         <div class="experience-location">{{experience.location}}</div>
         <p class="experience-description">{{experience.description}}</p>
         <div class="tech-tags">

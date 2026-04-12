@@ -1,11 +1,36 @@
 .work-container{
     margin-top: 22px;
     width: 100%;
-    overflow: hidden;
+    position: relative;
+}
+
+.work-container::before{
+    content: '';
+    position: absolute;
+    width: 2px;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background-color: lightgrey;
 }
 
 .experience-group{
     margin-bottom: 46px;
+    padding-left: 46px;
+    position: relative;
+}
+
+.experience-group::before{
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: var(--accent-color);
+    border: 2.5px solid white;
+    box-shadow: 0 0 0 1.5px var(--accent-color);
+    border-radius: 50%;
+    left: -6px;
+    top: 4px;
 }
 
 .experience-date {
