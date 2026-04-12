@@ -4,14 +4,6 @@
     overflow: hidden;
 }
 
-.tech-container-label {
-    margin-bottom: 22px;
-    padding: 12px 0;
-    color: var(--color-text-primary);
-    font-size: 36px;
-    font-weight: 700;
-}
-
 .tech-group {
     display: flex;
     flex-direction: row;

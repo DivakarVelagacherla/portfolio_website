@@ -153,3 +153,16 @@ a:hover {
   }
   to {opacity: 1;}
 }
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.4; 
+    transform: scale(0.75); 
+  }
+  
+}

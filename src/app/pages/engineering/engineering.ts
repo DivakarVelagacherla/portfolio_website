@@ -6,10 +6,19 @@ import { EngineeringSummary } from '../../core/engineering-summary/engineering-s
 import { Dashboard } from '../../core/dashboard/dashboard';
 import { Button } from '../../shared/button/button';
 import { TechStack } from '../../core/tech-stack/tech-stack';
+import { WorkExperience } from '../../core/work-experience/work-experience';
 
 @Component({
   selector: 'app-engineering',
-  imports: [TitleSection, QuoteEngineering, EngineeringSummary, Dashboard, Button, TechStack],
+  imports: [
+    TitleSection,
+    QuoteEngineering,
+    EngineeringSummary,
+    Dashboard,
+    Button,
+    TechStack,
+    WorkExperience,
+  ],
   templateUrl: './engineering.html',
   styleUrl: './engineering.css',
 })
