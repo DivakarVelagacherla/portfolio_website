@@ -1,5 +1,6 @@
 .dashboard-label {
-    margin: 12px;
+    margin-top: 24px;
+    margin-bottom: 10px;
     text-align: left;
     margin-left: 21%;
     font-size: 12px;
@@ -8,8 +9,36 @@
     font-weight: 200;
 }
 
-.stats-container{
+.dashboard-container{
     display: grid;
     max-width: 60%;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin: auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    /* align-items: center; */
+    text-align: center;
+    justify-content: center;
+}
+
+.stats {
+    padding: 12px 5px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+}
+
+.stats:hover {
+    background-color: #f0f0f0;
+}
+
+.stats-number {
+    font-size: 22px;
+}
+
+.stats-label {
+    color: var(--color-text-primary);
+    /* font-variant: small-caps; */
+    font-weight: 200;
+    font-size: 12px;
 }

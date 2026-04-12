@@ -14,6 +14,7 @@ export class StatsService {
     totalCommits: 256,
     totalPrs: 45,
     totalLeetcodeSolved: 59,
+    totalRepos: 19,
   };
 
   getStats(): Stats {
