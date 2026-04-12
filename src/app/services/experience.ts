@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { WorkExperience } from '../models/work-experience.model';
+import { Education } from '../models/education.model';
 
 @Injectable({
   providedIn: 'root',
@@ -38,7 +39,30 @@ export class ExperienceService {
     },
   ];
 
+  private education: Education[] = [
+    {
+      id: 1,
+      degree: "Bachelor's in Computer Science",
+      universityName: 'SRM IST',
+      startDate: new Date('2016-08-10'),
+      endDate: new Date('2020-05-10'),
+      location: 'Chennai, India',
+    },
+    {
+      id: 2,
+      degree: "Masters's in Computer Science",
+      universityName: 'University of North Texas',
+      startDate: new Date('2022-01-18'),
+      endDate: new Date('2023-12-18'),
+      location: 'Texas, USA',
+    },
+  ];
+
   getExperiences(): WorkExperience[] {
     return [...this.workExperience].sort((a, b) => b.startDate.getTime() - a.startDate.getTime());
+  }
+
+  getEducation(): Education[] {
+    return [...this.education].sort((a, b) => b.startDate.getTime() - a.startDate.getTime());
   }
 }
