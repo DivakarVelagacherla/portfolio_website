@@ -2,11 +2,12 @@ import { Component, OnDestroy, inject } from '@angular/core';
 import { TitleSection } from '../../shared/title-section/title-section';
 import { ThemeService } from '../../shared/theme.service';
 import { QuoteEngineering } from '../../core/quote-engineering/quote-engineering';
-import { LandingHeader } from '../../shared/landing-header/landing-header';
+import { EngineeringSummary } from '../../core/engineering-summary/engineering-summary';
+import { Dashboard } from '../../core/dashboard/dashboard';
 
 @Component({
   selector: 'app-engineering',
-  imports: [TitleSection, QuoteEngineering, LandingHeader],
+  imports: [TitleSection, QuoteEngineering, EngineeringSummary, Dashboard],
   templateUrl: './engineering.html',
   styleUrl: './engineering.css',
 })

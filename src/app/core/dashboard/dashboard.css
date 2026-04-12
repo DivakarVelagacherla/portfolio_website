@@ -1,0 +1,15 @@
+.dashboard-label {
+    margin: 12px;
+    text-align: left;
+    margin-left: 21%;
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    font-variant: small-caps;
+    font-weight: 200;
+}
+
+.stats-container{
+    display: grid;
+    max-width: 60%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}

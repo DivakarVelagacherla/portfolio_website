@@ -3,4 +3,5 @@
     text-align: center;
     font-style: italic;
     font-variant: small-caps;
+    color: var(--color-text-secondary);
 }

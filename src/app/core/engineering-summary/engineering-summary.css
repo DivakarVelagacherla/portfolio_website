@@ -1,0 +1,9 @@
+.summary {
+    margin: 42px auto;
+    text-align: center;
+    max-width: 60%;
+    line-height: 32px;
+    font-size: 18px;
+    font-weight: 250;
+    font-style: italic;
+}
