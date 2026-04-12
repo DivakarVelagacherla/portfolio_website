@@ -4,6 +4,7 @@ export interface Stats {
   totalCommits: number;
   totalPrs: number;
   totalLeetcodeSolved: number;
+  totalRepos: number;
 
   //   loc by language for future
   locByLanguage?: {
