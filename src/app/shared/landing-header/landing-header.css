@@ -1,6 +1,14 @@
+:host{
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: block;
+}
+
 .landing-header-container {
     display: flex;
     padding: 8px 48px;
+    background-color: white;
 }
 
 .logo {
