@@ -120,8 +120,27 @@ a:hover {
     margin-bottom: 22px;
     padding: 12px 0;
     color: var(--color-text-primary);
-    font-size: 36px;
+    font-size: 48px;
     font-weight: 700;
+}
+
+.tech-tags {
+    display: flex;
+    flex-direction: row;
+    row-gap: 24px;
+    column-gap: 12px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    max-width: 100%;
+}
+
+.tech-tag{
+    border-radius: 980px;
+    padding: 6px 14px;
+    font-weight: 500;
+    font-size: 14px;
+    background-color: var(--tag-bg);
+
 }
 
 /* Fade in animation */

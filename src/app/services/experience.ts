@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { WorkExperience } from '../models/work-experience.model';
+import { Experience } from '../models/work-experience.model';
 import { Education } from '../models/education.model';
 import { TechGroup } from '../models/tech-stack.model';
 
@@ -7,7 +7,7 @@ import { TechGroup } from '../models/tech-stack.model';
   providedIn: 'root',
 })
 export class ExperienceService {
-  private workExperience: WorkExperience[] = [
+  private workExperience: Experience[] = [
     {
       id: 1,
       role: 'Network Infrastructure Intern',
@@ -16,7 +16,10 @@ export class ExperienceService {
       endDate: new Date('2019-04-01'),
       location: 'Chennai, India',
       techStack: ['Networking', 'Routing', 'Switches', 'TCP/UDP'],
-      description: 'Will add sooner',
+      description: `Assisted in configuring and maintaining network infrastructure 
+                    including routers, switches and firewalls. Gained hands-on 
+                    exposure to TCP/IP protocols, network troubleshooting and 
+                    system administration in a startup environment.`,
     },
     {
       id: 2,
@@ -26,7 +29,12 @@ export class ExperienceService {
       endDate: new Date('2021-12-06'),
       location: 'Remote, India',
       techStack: ['Java', 'SpringBoot', 'Angular', 'MySQL', 'REST APIs'],
-      description: 'Will add sooner',
+      description: `Developed enterprise web applications for clients in the banking 
+                    and retail domains using Java and Spring Boot. Built and consumed 
+                    REST APIs, designed database schemas with MySQL and delivered 
+                    frontend features using Angular. Worked in Agile sprints 
+                    collaborating with onshore and offshore teams to meet client 
+                    delivery timelines.`,
     },
     {
       id: 3,
@@ -36,7 +44,12 @@ export class ExperienceService {
       endDate: null,
       location: 'Pennsylvania, USA',
       techStack: ['Java', 'SpringBoot', 'AWS', 'Postgres', 'GraphQL', 'Microservices', 'Go'],
-      description: 'Will add sooner',
+      description: `Developing and maintaining cloud-native backend services on AWS 
+                    supporting Vanguard's investment platforms. Working across ECS, 
+                    Lambda and RDS Aurora to build scalable APIs and data pipelines 
+                    in a highly regulated financial environment. Collaborating with 
+                    cross-functional teams following enterprise architecture best 
+                    practices and CI/CD workflows.`,
     },
   ];
 
@@ -145,7 +158,7 @@ export class ExperienceService {
     },
   ];
 
-  getExperiences(): WorkExperience[] {
+  getExperiences(): Experience[] {
     return [...this.workExperience].sort((a, b) => b.startDate.getTime() - a.startDate.getTime());
   }
 
