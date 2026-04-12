@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Experience } from '../models/work-experience.model';
+import { Experience } from '../models/experience.model';
 import { Education } from '../models/education.model';
 import { TechGroup } from '../models/tech-stack.model';
 
@@ -56,19 +56,21 @@ export class ExperienceService {
   private education: Education[] = [
     {
       id: 1,
-      degree: "Bachelor's in Computer Science",
-      universityName: 'SRM IST',
+      degree: 'Bachelor of Technology',
+      stream: 'Computer Science',
+      universityName: 'SRM University',
       startDate: new Date('2016-08-10'),
       endDate: new Date('2020-05-10'),
       location: 'Chennai, India',
     },
     {
       id: 2,
-      degree: "Masters's in Computer Science",
+      degree: 'Master of Science',
+      stream: 'Computer Science',
       universityName: 'University of North Texas',
       startDate: new Date('2022-01-18'),
       endDate: new Date('2023-12-18'),
-      location: 'Texas, USA',
+      location: 'Denton, Tx, USA',
     },
   ];
 

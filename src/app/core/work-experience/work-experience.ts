@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ExperienceService } from '../../services/experience';
-import { Experience } from '../../models/work-experience.model';
+import { Experience } from '../../models/experience.model';
 
 @Component({
   selector: 'app-work-experience',
