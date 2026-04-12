@@ -7,6 +7,7 @@ import { Dashboard } from '../../core/dashboard/dashboard';
 import { Button } from '../../shared/button/button';
 import { TechStack } from '../../core/tech-stack/tech-stack';
 import { WorkExperience } from '../../core/work-experience/work-experience';
+import { EducationComponent } from '../../core/education-component/education-component';
 
 @Component({
   selector: 'app-engineering',
@@ -18,6 +19,7 @@ import { WorkExperience } from '../../core/work-experience/work-experience';
     Button,
     TechStack,
     WorkExperience,
+    EducationComponent,
   ],
   templateUrl: './engineering.html',
   styleUrl: './engineering.css',

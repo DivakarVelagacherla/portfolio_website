@@ -62,6 +62,7 @@ export class ExperienceService {
       startDate: new Date('2016-08-10'),
       endDate: new Date('2020-05-10'),
       location: 'Chennai, India',
+      logoUrl: 'assets/logo-srm.png',
     },
     {
       id: 2,
@@ -71,6 +72,7 @@ export class ExperienceService {
       startDate: new Date('2022-01-18'),
       endDate: new Date('2023-12-18'),
       location: 'Denton, Tx, USA',
+      logoUrl: 'assets/logo-unt.png',
     },
   ];
 

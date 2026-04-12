@@ -1,0 +1,40 @@
+.education-list {
+    padding: 48px 48px;
+    margin-bottom: 24px;
+    background-color: var(--card-bg-color);
+    border-radius: 18px;
+    max-width: 980px;
+}
+
+.education-section {
+    display: flex;
+    flex-direction: row;
+    gap: 48px;
+}
+
+.education-logo {
+    height: 75px;
+    width: 75px;
+    object-fit: contain;
+}
+
+.education-degree {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+}
+
+.education-university {
+    margin-top: 12px;
+    color: var(--accent-color);
+}
+
+.education-timeline {
+    margin-top: 12px;
+    color: var(--color-text-secondary);
+    min-width: 200px;
+    flex-shrink: 0;
+    font-weight: 500;
+    font-size: 14px;
+}
+
