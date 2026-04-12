@@ -1,18 +1,36 @@
 .button {
     display: inline-block;
     text-align: center;
-    min-width: 140px;
+    min-width: 160px;
     width: 160px;
-    color: white;
-    background: var(--accent-color);
-    padding: 11px 21px;
-    font-size: 17px;
-    border-radius: 100px;
+    padding: 11px 24px;
+    font-size: 15px;
+    border-radius: 980px;
     transition: all 0.2s ease;
-    border: 1.5px solid var(--accent-color);
+    border: 1.5px solid transparent;
     text-decoration: none;
+    font-weight: 500;
+    cursor: pointer;
 }
 
-.button:hover {
+.btn-primary{
+    background: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
+}
+
+.btn-primary:hover{
     opacity: 0.85;
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.btn-secondary:hover{
+    background: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
 }

@@ -103,6 +103,12 @@ a:hover {
   -webkit-text-fill-color: transparent;
 }
 
+.page-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
 /* Fade in animation */
 @keyframes tooltipFadeIn {
   from {

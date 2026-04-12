@@ -9,5 +9,6 @@ import { CommonModule } from '@angular/common';
 })
 export class Button {
   @Input() label: string = '';
+  @Input() variant: string = 'primary';
   @Input() target: string = '';
 }
