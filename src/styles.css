@@ -1,4 +1,7 @@
 :root {
+    --tag-bg: #f5f5f7;
+    --tag-bg-primary: #0071e314;
+    --tag-color: #0071e3;
     --ink-muted: #9a9990;
     --color-text-primary: #1d1d1f;
     --color-text-secondary: #6e6e73;
@@ -25,6 +28,10 @@ body {
     color: var(--color-text-primary);
     font-size: 17px;
     -webkit-font-smoothing: antialiased;
+}
+
+section, [id] {
+  scroll-margin-top: 40px;
 }
 
 a {

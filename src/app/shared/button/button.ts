@@ -11,4 +11,9 @@ export class Button {
   @Input() label: string = '';
   @Input() variant: string = 'primary';
   @Input() target: string = '';
+
+  scrollToSection(): void {
+    const element = document.getElementById(this.target);
+    element?.scrollIntoView({ behavior: 'smooth' });
+  }
 }

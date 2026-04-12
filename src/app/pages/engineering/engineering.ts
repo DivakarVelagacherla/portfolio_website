@@ -5,10 +5,11 @@ import { QuoteEngineering } from '../../core/quote-engineering/quote-engineering
 import { EngineeringSummary } from '../../core/engineering-summary/engineering-summary';
 import { Dashboard } from '../../core/dashboard/dashboard';
 import { Button } from '../../shared/button/button';
+import { TechStack } from '../../core/tech-stack/tech-stack';
 
 @Component({
   selector: 'app-engineering',
-  imports: [TitleSection, QuoteEngineering, EngineeringSummary, Dashboard, Button],
+  imports: [TitleSection, QuoteEngineering, EngineeringSummary, Dashboard, Button, TechStack],
   templateUrl: './engineering.html',
   styleUrl: './engineering.css',
 })
