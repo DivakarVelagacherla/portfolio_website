@@ -1,0 +1,26 @@
+.tech-container {
+    margin-top: 22px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.tech-group {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 28px;
+    align-items: flex-start;
+}
+
+.tech-label {
+    color: var(--color-text-secondary);
+    min-width: 200px;
+    flex-shrink: 0;
+    font-weight: 500;
+    font-size: 14px;
+    padding-top: 6px;
+}
+
+.primary {
+    background-color: var(--tag-bg-primary);
+    color: var(--tag-color);
+}

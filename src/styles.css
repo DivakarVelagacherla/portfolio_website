@@ -1,4 +1,7 @@
 :root {
+    --tag-bg: #f5f5f7;
+    --tag-bg-primary: #0071e314;
+    --tag-color: #0071e3;
     --ink-muted: #9a9990;
     --color-text-primary: #1d1d1f;
     --color-text-secondary: #6e6e73;
@@ -9,6 +12,7 @@
     --accent-color: #0071e3;
     --gradient-apple-red: linear-gradient(90deg,oklch(64.415% 0.18352 250.25) 8%,#BA62FC,#F2416B,#F55600);
     --gradient-apple-blue: linear-gradient(360deg, oklch(0.77 0.09 240.14) 30%, #028cdf, #1b8fe7, #5bb5cf);
+    /* --gradient-apple-button:  */
     /* linear-gradient(360deg, oklch(0.77 0.09 240.14) 30%, #028cdf, #1b8fe7, #5bb5cf);
     linear-gradient(360deg, oklch(0.77 0.09 240.14) 30%, #028cdf, #008efa, #005cff) */
 }
@@ -24,6 +28,10 @@ body {
     color: var(--color-text-primary);
     font-size: 17px;
     -webkit-font-smoothing: antialiased;
+}
+
+section, [id] {
+  scroll-margin-top: 40px;
 }
 
 a {
@@ -102,6 +110,40 @@ a:hover {
   -webkit-text-fill-color: transparent;
 }
 
+.page-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.experience-heading {
+  margin-top: 22px;
+  margin-bottom: 22px;
+  padding: 12px 0;
+  color: var(--color-text-primary);
+  font-size: 48px;
+  font-weight: 700;
+}
+
+.tech-tags {
+  display: flex;
+  flex-direction: row;
+  row-gap: 24px;
+  column-gap: 12px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+
+.tech-tag{
+  border-radius: 980px;
+  padding: 6px 14px;
+  font-weight: 500;
+  font-size: 14px;
+  background-color: var(--tag-bg);
+
+}
+
 /* Fade in animation */
 @keyframes tooltipFadeIn {
   from {
@@ -130,4 +172,17 @@ a:hover {
     opacity: 0;
   }
   to {opacity: 1;}
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.4; 
+    transform: scale(0.75); 
+  }
+  
 }

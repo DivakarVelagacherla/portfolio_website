@@ -3,6 +3,12 @@
 }
 
 .line-break{
-    margin: 22px auto;
-    width: 60%;
+    margin-top: 22px;
+}
+
+.cta-buttons {
+    display: flex;
+    flex-direction: row;
+    padding-top: 24px;
+    gap: 12px;
 }

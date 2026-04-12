@@ -5,3 +5,7 @@
     font-variant: small-caps;
     color: var(--color-text-secondary);
 }
+
+strong {
+    color: var(--color-text-primary);
+}

@@ -1,0 +1,13 @@
+<div class="experience-heading" id="Experiences">Technical Skills</div>
+<div class="tech-container">
+    <div class="tech-group" *ngFor="let group of techStack">
+        <span class="tech-label">{{group.category}}</span>
+        <div class="tech-tags">
+            <span class="tech-tag" 
+                *ngFor="let item of group.items"
+                [class.primary]="item.primary">
+                {{item.name}}
+            </span>
+        </div>
+    </div>
+</div>

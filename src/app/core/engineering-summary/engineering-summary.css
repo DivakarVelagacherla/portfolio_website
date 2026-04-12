@@ -1,7 +1,8 @@
 .summary {
-    margin: 42px auto;
-    text-align: center;
-    max-width: 60%;
+    margin-top: 42px;
+    /* margin-left: 40px; */
+    /* margin: 0 auto; */
+    max-width: 600px;
     line-height: 32px;
     font-size: 18px;
     font-weight: 250;

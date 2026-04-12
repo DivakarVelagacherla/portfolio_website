@@ -1,0 +1,11 @@
+<div class="experience-heading">Education</div>
+<div class="education-list" *ngFor="let education of educationDetails; trackBy: trackByEducationId">
+    <div class="education-section">
+        <img class="education-logo" [src]="education.logoUrl" [alt]="education.universityName">
+        <div class="education-content">
+            <div class="education-degree">{{education.degree | titlecase}} &mdash; {{education.stream | titlecase}}</div>
+            <div class="education-university">{{education.universityName}}</div>
+            <div class="education-timeline">{{education.startDate | date: 'MMMM yyyy'}} &mdash; {{education.endDate | date: 'MMMM yyyy'}} &middot; {{education.location}}</div>
+        </div>
+    </div>
+</div>

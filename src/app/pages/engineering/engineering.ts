@@ -4,10 +4,23 @@ import { ThemeService } from '../../shared/theme.service';
 import { QuoteEngineering } from '../../core/quote-engineering/quote-engineering';
 import { EngineeringSummary } from '../../core/engineering-summary/engineering-summary';
 import { Dashboard } from '../../core/dashboard/dashboard';
+import { Button } from '../../shared/button/button';
+import { TechStack } from '../../core/tech-stack/tech-stack';
+import { WorkExperience } from '../../core/work-experience/work-experience';
+import { EducationComponent } from '../../core/education-component/education-component';
 
 @Component({
   selector: 'app-engineering',
-  imports: [TitleSection, QuoteEngineering, EngineeringSummary, Dashboard],
+  imports: [
+    TitleSection,
+    QuoteEngineering,
+    EngineeringSummary,
+    Dashboard,
+    Button,
+    TechStack,
+    WorkExperience,
+    EducationComponent,
+  ],
   templateUrl: './engineering.html',
   styleUrl: './engineering.css',
 })

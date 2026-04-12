@@ -1,0 +1,74 @@
+.work-container{
+    margin-top: 22px;
+    width: 100%;
+    position: relative;
+}
+
+.work-container::before{
+    content: '';
+    position: absolute;
+    width: 2px;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background-color: lightgrey;
+}
+
+.experience-group{
+    margin-bottom: 46px;
+    padding-left: 46px;
+    position: relative;
+}
+
+.experience-group::before{
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: var(--accent-color);
+    border: 2.5px solid white;
+    box-shadow: 0 0 0 1.5px var(--accent-color);
+    border-radius: 50%;
+    left: -6px;
+    top: 4px;
+}
+
+.experience-date {
+    color: var(--color-text-secondary);
+    min-width: 200px;
+    flex-shrink: 0;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.experience-role {
+    margin-top: 6px;
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+}
+
+.experience-company {
+    margin-top: 8px;
+    color: var(--accent-color);
+    font-size: 16px;
+}
+
+.experience-location{
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--color-text-secondary);
+}
+
+.experience-description {
+    margin-top: 18px;
+    font-size: 16px;
+    color: var(--color-text-secondary);
+    max-width: 640px;
+    line-height: 1.7;
+}
+
+.tech-tags {
+    margin-top: 26px;
+}

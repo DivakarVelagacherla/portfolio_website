@@ -1,6 +1,22 @@
-<app-title-section 
-    [pageTitle]="'Engineering'"/>
-<app-quote-engineering />
-<div class="line-break"></div>
-<app-engineering-summary/>
-<app-dashboard/>
+<div class="page-container">
+    <app-title-section 
+        [pageTitle]="'Engineering'"/>
+    <app-quote-engineering />
+    <div class="line-break"></div>
+    <app-engineering-summary/>
+    <div class="cta-buttons">
+        <app-button [label]="'Experiences'" 
+                    [variant]="'primary'"
+                    [target]="'Experiences'"/>
+        <app-button [label]="'Blogs'"
+                    [variant]="'secondary'"
+                    [target]="'Blogs'"/>
+    </div>
+    <app-dashboard/>
+    <div class="line-break" [style.margin-top]="'150px'"></div>
+    <app-tech-stack/>
+    <div class="line-break"></div>
+    <app-work-experience/>
+    <div class="line-break"></div>
+    <app-education-component/>
+</div>
