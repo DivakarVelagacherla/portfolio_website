@@ -1,14 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Profile } from '../../models/profile.model';
+import { ProfileService } from '../../services/profile';
 
 @Component({
   selector: 'app-cta-section',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './cta-section.html',
   styleUrl: './cta-section.css',
 })
-export class CtaSection {
-  githubLink: string = 'https://github.com/DivakarVelagacherla';
-  linkedinLink: string = 'https://www.linkedin.com/in/divakarvelagacherla';
+export class CtaSection implements OnInit {
+  profile: Profile | null = null;
+
+  constructor(private profileService: ProfileService) {}
+
+  ngOnInit(): void {
+    this.profile = this.profileService.getProfile();
+  }
 
   onClickGitHubIcon(event: Event): void {
     const confirmed = confirm('Open Github?');

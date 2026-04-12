@@ -1,20 +1,20 @@
-<div class="cta-container">
-    <a href="assets/resume.pdf" download="Divakar_Velagacherla_Resume.pdf" (click)="onClickResumeIcon($event)" class="cta-icon-resume">
+<div *ngIf = "profile" class="cta-container">
+    <a [href]="profile.resumeUrl" download="Divakar_Velagacherla_Resume.pdf" (click)="onClickResumeIcon($event)" class="cta-icon-resume">
         <img src="assets/logo-resume.png" alt="Resume Icon" class="cta-logo">
     </a>
-    <a href="{{linkedinLink}}" target="_blank" (click)="onClickLinkedinIcon($event)" class="cta-icon-linkedin">
+    <a [href]="profile.social.linkedin" target="_blank" (click)="onClickLinkedinIcon($event)" class="cta-icon-linkedin">
         <img src="assets/logo-linkedin.png" alt="Linked Logo" class="cta-logo">
     </a>
-    <a href="{{githubLink}}" target="_blank" (click)="onClickGitHubIcon($event)" class="cta-icon-github">
+    <a [href]="profile.social.github" target="_blank" (click)="onClickGitHubIcon($event)" class="cta-icon-github">
         <img src="assets/logo-github.png" alt="Github Logo" class="cta-logo">
     </a>
-    <a href="mailto:divakarvelagacherla@gmail.com" target="_blank" (click)="onClickGmailIcon($event)" class="cta-icon-gmail">
+    <a [href]="'mailto:'+profile.social.gmail" target="_blank" (click)="onClickGmailIcon($event)" class="cta-icon-gmail">
         <img src="assets/logo-gmail.png" alt="" class="cta-logo">
     </a>
-    <a href="tel:+15125668620" (click)="onClickPhoneIcon($event)" class="cta-icon-phone">
+    <a [href]="'tel:'+profile.social.phone" (click)="onClickPhoneIcon($event)" class="cta-icon-phone">
         <img src="assets/logo-phone.png" alt="Phone Icon" class="cta-logo">
     </a>
-    <a href="https://wa.me/15125668620" target="_blank" (click)="onClickWhatsappIcon($event)" class="cta-icon-whatsapp">
+    <a [href]="'https://wa.me/'+profile.social.whatsapp" target="_blank" (click)="onClickWhatsappIcon($event)" class="cta-icon-whatsapp">
         <img src="assets/logo-whatsapp.png" alt="" class="cta-logo">
     </a>
     
