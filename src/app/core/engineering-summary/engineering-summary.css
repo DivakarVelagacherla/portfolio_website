@@ -1,10 +1,10 @@
 .summary {
     margin-top: 42px;
-    /* margin-left: 40px; */
-    /* margin: 0 auto; */
     max-width: 600px;
     line-height: 32px;
     font-size: 18px;
     font-weight: 250;
     font-style: italic;
+    opacity: 0;
+    animation: slideUp 0.5s ease-in 0.1s forwards;
 }

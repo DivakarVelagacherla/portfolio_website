@@ -144,6 +144,11 @@ a:hover {
 
 }
 
+@keyframes expandLine {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
 /* Fade in animation */
 @keyframes tooltipFadeIn {
   from {
@@ -183,6 +188,5 @@ a:hover {
   50% {
     opacity: 0.4; 
     transform: scale(0.75); 
-  }
-  
+  } 
 }
