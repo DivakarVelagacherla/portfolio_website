@@ -15,8 +15,10 @@
 
 .btn-primary{
     background: var(--accent-color);
-    color: white;
+    color: var(--bg-color);
     border-color: var(--accent-color);
+    opacity: 0;
+    animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
 }
 
 .btn-primary:hover{
@@ -27,10 +29,12 @@
     background: transparent;
     color: var(--accent-color);
     border-color: var(--accent-color);
+    opacity: 0;
+    animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.45s forwards;
 }
 
 .btn-secondary:hover{
     background: var(--accent-color);
-    color: white;
+    color: var(--bg-color);
     border-color: var(--accent-color);
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-engineering-summary',
@@ -6,6 +6,4 @@ import { Component } from '@angular/core';
   templateUrl: './engineering-summary.html',
   styleUrl: './engineering-summary.css',
 })
-export class EngineeringSummary {
-
-}
+export class EngineeringSummary {}

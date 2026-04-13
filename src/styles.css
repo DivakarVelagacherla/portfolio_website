@@ -6,7 +6,9 @@
     --color-text-primary: #1d1d1f;
     --color-text-secondary: #6e6e73;
     --color-text-hover: #000;
-    --title-color: #86868b;
+    --bg-color: white;
+    --light-grey: lightgrey;
+    --title-color: #2f2f2f;
     --font-size-icon: 12px;
     --card-bg-color: rgb(245, 245, 247);
     --accent-color: #0071e3;
@@ -16,6 +18,8 @@
     /* linear-gradient(360deg, oklch(0.77 0.09 240.14) 30%, #028cdf, #1b8fe7, #5bb5cf);
     linear-gradient(360deg, oklch(0.77 0.09 240.14) 30%, #028cdf, #008efa, #005cff) */
 }
+
+
 
 * {
     margin: 0;
@@ -28,6 +32,7 @@ body {
     color: var(--color-text-primary);
     font-size: 17px;
     -webkit-font-smoothing: antialiased;
+    background-color: var(--bg-color)
 }
 
 section, [id] {
@@ -144,6 +149,11 @@ a:hover {
 
 }
 
+@keyframes expandLine {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
 /* Fade in animation */
 @keyframes tooltipFadeIn {
   from {
@@ -183,6 +193,5 @@ a:hover {
   50% {
     opacity: 0.4; 
     transform: scale(0.75); 
-  }
-  
+  } 
 }
