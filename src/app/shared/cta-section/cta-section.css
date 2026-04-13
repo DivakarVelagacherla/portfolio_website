@@ -31,3 +31,7 @@
 .cta-container a:nth-child(4) {animation-delay: 1.45s;}
 .cta-container a:nth-child(5) {animation-delay: 1.50s;}
 .cta-container a:nth-child(6) {animation-delay: 1.60s;}
+
+/* .cta-icon-github {
+  filter: invert(90%);
+} */
