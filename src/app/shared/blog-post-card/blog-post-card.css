@@ -1,10 +1,18 @@
 .blog-post-container {
     background-color: var(--card-bg-color);
-    padding: 24px 24px;
+    padding: 24px;
     border-radius: 10px;
     height: 100%;
     display: flex;
     flex-direction: column;
+    border: solid 2px transparent;  /* ← invisible border by default */
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.blog-post-container:hover{
+    border-color: var(--accent-color);  /* ← just change color, no layout shift */
+    transform: translateY(-5px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
 }
 
 .tech-tag {

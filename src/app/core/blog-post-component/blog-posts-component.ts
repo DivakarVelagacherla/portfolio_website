@@ -47,7 +47,7 @@ export class BlogPostsComponent implements OnInit {
 
     if (this.isWheeling) return;
 
-    if (event.deltaX > 10) {
+    if (event.deltaX > 15) {
       this.isWheeling = true;
       if (this.currentPage < this.totalPages - 1) {
         this.currentPage++;
@@ -55,7 +55,7 @@ export class BlogPostsComponent implements OnInit {
       setTimeout(() => (this.isWheeling = false), 500);
     }
 
-    if (event.deltaX < -10) {
+    if (event.deltaX < -15) {
       this.isWheeling = true;
       if (this.currentPage > 0) {
         this.currentPage--;
