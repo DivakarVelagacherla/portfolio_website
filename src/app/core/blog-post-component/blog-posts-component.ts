@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { BlogPost } from '../../models/blog-post.model';
 import { BlogPostsService } from '../../services/blog-post';
 import { CommonModule } from '@angular/common';
@@ -13,30 +13,55 @@ import { PaginationComponent } from '../../shared/pagination/pagination';
 })
 export class BlogPostsComponent implements OnInit {
   allBlogPosts: BlogPost[] = [];
-  pageSize: number = 6;
-  currentPage: number = 0;
   totalPages: number = 0;
-  visiblePosts: BlogPost[] = [];
+  currentPage: number = 0;
+  pageSize: number = 6;
+  pagedPosts: BlogPost[][] = [];
+  private isWheeling: boolean = false;
 
-  constructor(private blogPostService: BlogPostsService) {}
+  constructor(
+    private blogPostService: BlogPostsService,
+    private ngZone: NgZone,
+  ) {}
 
   ngOnInit(): void {
     this.allBlogPosts = this.blogPostService.getBlogPosts();
     this.totalPages = Math.ceil(this.allBlogPosts.length / this.pageSize);
-    this.getVisiblePosts(this.currentPage);
+
+    for (let i = 0; i < this.allBlogPosts.length; i += this.pageSize) {
+      this.pagedPosts.push(this.allBlogPosts.slice(i, i + this.pageSize));
+    }
   }
 
   trackBySlug(_index: number, post: BlogPost): string {
     return post.slug;
   }
 
-  getVisiblePosts(currentPage: number): void {
-    const start = currentPage * this.pageSize;
-    this.visiblePosts = this.allBlogPosts.slice(start, start + this.pageSize);
+  onClickPageDot(pageNo: number): void {
+    this.currentPage = pageNo;
   }
 
-  onPageChange(page: number): void {
-    this.currentPage = page;
-    this.getVisiblePosts(this.currentPage);
+  onWheelSwipe(event: WheelEvent): void {
+    console.log(event);
+    event.preventDefault();
+
+    if (this.isWheeling) return;
+
+    if (event.deltaX > 10) {
+      this.isWheeling = true;
+      if (this.currentPage < this.totalPages - 1) {
+        this.currentPage++;
+      }
+      setTimeout(() => (this.isWheeling = false), 500);
+    }
+
+    if (event.deltaX < -10) {
+      this.isWheeling = true;
+      if (this.currentPage > 0) {
+        this.currentPage--;
+      }
+
+      setTimeout(() => (this.isWheeling = false), 500);
+    }
   }
 }

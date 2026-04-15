@@ -12,7 +12,7 @@ export class PaginationComponent {
   @Input() totalPages: number = 0;
   @Output() pageChange = new EventEmitter<number>();
 
-  get PagesArray(): number[] {
+  get pagesArray(): number[] {
     return Array.from({ length: this.totalPages }, (_, i) => i);
   }
 }

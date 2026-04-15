@@ -1,10 +1,19 @@
 <div class="experience-heading" id="Blogs">Technical Blogs</div>
-<div class="blog-post-grid">
-    <app-blog-post-card *ngFor="let post of visiblePosts; trackBy: trackBySlug"
-    [post]="post" />
+<div class="slider-wrapper"
+    (wheel)="onWheelSwipe($event)">
+    <div class="slider-tracker"
+        [style.transform]="'translateX(-' + (currentPage * 100) + '%)'">
+        <div class="slider-pages" *ngFor="let page of pagedPosts">
+            <div class="blog-post-grid">
+                <app-blog-post-card *ngFor="let post of page; trackBy: trackBySlug"
+                [post]="post" />
+            </div>
+        </div>
+    </div>
 </div>
+
 <app-pagination
     [currentPage]="currentPage"
     [totalPages]="totalPages"
-    (pageChange)="onPageChange($event)"
+    (pageChange)="onClickPageDot($event)"
     />
