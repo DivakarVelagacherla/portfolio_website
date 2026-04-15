@@ -1,0 +1,11 @@
+<div class="overlay" 
+[class.active] = "confirmService.isOpen"
+*ngIf="confirmService.isOpen" (click)="onCancel()">
+  <div class="confirm-dialog-container" (click)="$event.stopPropagation()">
+    <h2>{{confirmService.message}}</h2>
+    <div class="confirm-buttons">
+      <span class="btn-cancel" (click)="onCancel()">{{confirmService.cancelText}}</span>
+      <span class="btn-confirm" (click)="onConfirm()">{{confirmService.confirmText}}</span>
+    </div>
+  </div>
+</div>

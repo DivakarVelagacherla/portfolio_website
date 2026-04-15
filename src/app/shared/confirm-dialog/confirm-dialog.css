@@ -1,0 +1,76 @@
+:host {
+    display: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    /* background: rgba(0, 0, 0, 0.5); */
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: all;
+    transition: backdrop-filter 0.3s ease, background 0.3s ease;
+}
+
+.overlay.active {
+    backdrop-filter: blur(12px);          /* ← end at 12px */
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.confirm-dialog-container {
+  background: white;
+  border-radius: 16px;
+  padding: 32px;
+  width: 400px;
+  height: 150px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.confirm-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+}
+
+.btn-cancel {
+    padding: 6px;
+    border-color: var(--accent-color);
+    border-radius: 10px;
+    border-style: solid;
+    cursor: pointer;
+    min-width: 100px;
+    text-align: center;
+}
+
+.btn-cancel:hover{
+    background: var(--accent-color);
+    color: var(--bg-color);
+    border-color: var(--accent-color);
+}
+
+.btn-confirm{
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    border-color: var(--accent-color);
+    padding: 6px;
+    border-radius: 10px;
+    cursor: pointer;
+    min-width: 100px;
+    text-align: center;
+}
+
+.btn-confirm:hover{
+    opacity: 0.85;
+}
