@@ -19,8 +19,3 @@
     font-size: 14px;
     padding-top: 6px;
 }
-
-.primary {
-    background-color: var(--tag-bg-primary);
-    color: var(--tag-color);
-}

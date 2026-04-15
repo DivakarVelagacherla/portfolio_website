@@ -1,0 +1,22 @@
+.blog-post-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+    align-content: start;
+    padding: 24px;
+}
+
+.slider-wrapper{
+    overflow: hidden;
+}
+
+.slider-tracker {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slider-pages{
+    min-width: 100%;
+}
