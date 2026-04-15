@@ -12,7 +12,7 @@ export class ExperienceService {
       id: 1,
       role: 'Network Infrastructure Intern',
       companyName: 'Sansbound Solutions',
-      startDate: new Date('2019-01-15'),
+      startDate: new Date('2019-01-14'),
       endDate: new Date('2019-04-15'),
       location: 'Chennai, India',
       techStack: ['Networking', 'Routing', 'Switches', 'TCP/UDP'],
