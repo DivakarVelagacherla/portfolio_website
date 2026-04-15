@@ -1,0 +1,9 @@
+<div class="blog-post-container">
+    <div class="tech-tags">
+        <span class="tech-tag primary" *ngFor="let category of post.categories">{{category}}</span>
+    </div>
+    <div class="blog-date">{{post.date | date: 'MMM dd, yyyy'}}</div>
+    <div class="blog-title">{{post.title}}</div>
+    <div class="blog-summary">{{post.summary}}</div>
+    <a href="" class="tech-tag primary click-link">Read more &rarr;</a>
+</div>

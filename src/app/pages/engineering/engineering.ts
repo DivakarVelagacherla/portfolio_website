@@ -8,6 +8,7 @@ import { Button } from '../../shared/button/button';
 import { TechStack } from '../../core/tech-stack/tech-stack';
 import { WorkExperience } from '../../core/work-experience/work-experience';
 import { EducationComponent } from '../../core/education-component/education-component';
+import { BlogPostsComponent } from '../../core/blog-post-component/blog-posts-component';
 
 @Component({
   selector: 'app-engineering',
@@ -20,6 +21,7 @@ import { EducationComponent } from '../../core/education-component/education-com
     TechStack,
     WorkExperience,
     EducationComponent,
+    BlogPostsComponent,
   ],
   templateUrl: './engineering.html',
   styleUrl: './engineering.css',

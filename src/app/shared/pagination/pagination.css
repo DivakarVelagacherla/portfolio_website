@@ -1,0 +1,22 @@
+.pagination-container {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background: var(--pagination-dot-color);  
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dot.active {
+  background: var(--accent-color);  
+  width: 20px;                      
+  border-radius: 4px;               
+}

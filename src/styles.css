@@ -1,3 +1,7 @@
+@import 'swiper/css';
+@import 'swiper/css/navigation';
+@import 'swiper/css/pagination';
+
 :root {
     --tag-bg: #f5f5f7;
     --tag-bg-primary: #0071e314;
@@ -14,6 +18,7 @@
     --accent-color: #0071e3;
     --gradient-apple-red: linear-gradient(90deg,oklch(64.415% 0.18352 250.25) 8%,#BA62FC,#F2416B,#F55600);
     --gradient-apple-blue: linear-gradient(360deg, oklch(0.77 0.09 240.14) 30%, #028cdf, #1b8fe7, #5bb5cf);
+    --pagination-dot-color: #d1d1d6;
     /* --gradient-apple-button:  */
     /* linear-gradient(360deg, oklch(0.77 0.09 240.14) 30%, #028cdf, #1b8fe7, #5bb5cf);
     linear-gradient(360deg, oklch(0.77 0.09 240.14) 30%, #028cdf, #008efa, #005cff) */
@@ -149,6 +154,11 @@ a:hover {
 
 }
 
+.primary {
+    background-color: var(--tag-bg-primary);
+    color: var(--tag-color);
+}
+
 @keyframes expandLine {
   from { transform: scaleX(0); }
   to { transform: scaleX(1); }
@@ -176,6 +186,7 @@ a:hover {
     transform: translateY(0px);
   }
 }
+
 
 @keyframes fadeIn{
   from {

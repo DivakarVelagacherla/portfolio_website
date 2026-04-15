@@ -1,0 +1,5 @@
+<div class="pagination-container">
+    <span class="dot" *ngFor="let page of PagesArray"
+            [class.active]="page===currentPage"
+            (click)="pageChange.emit(page)"></span>
+</div>

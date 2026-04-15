@@ -1,0 +1,10 @@
+<div class="experience-heading" id="Blogs">Technical Blogs</div>
+<div class="blog-post-grid">
+    <app-blog-post-card *ngFor="let post of visiblePosts; trackBy: trackBySlug"
+    [post]="post" />
+</div>
+<app-pagination
+    [currentPage]="currentPage"
+    [totalPages]="totalPages"
+    (pageChange)="onPageChange($event)"
+    />
