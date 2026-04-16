@@ -56,13 +56,13 @@ h2 {
 
 .btn-cancel:hover{
     background: var(--accent-color);
-    color: var(--bg-color);
+    color: var(--bg-color-white);
     border-color: var(--accent-color);
 }
 
 .btn-confirm{
     background-color: var(--accent-color);
-    color: var(--bg-color);
+    color: var(--bg-color-white);
     border-color: var(--accent-color);
     padding: 6px;
     border-radius: 10px;

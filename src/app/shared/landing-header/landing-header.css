@@ -8,7 +8,7 @@
 .landing-header-container {
     display: flex;
     padding: 8px 48px;
-    background-color: var(--bg-color);
+    background-color: var(--bg-color-white);
 }
 
 .logo {

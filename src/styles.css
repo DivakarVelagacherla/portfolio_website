@@ -10,7 +10,7 @@
     --color-text-primary: #1d1d1f;
     --color-text-secondary: #6e6e73;
     --color-text-hover: #000;
-    --bg-color: white;
+    --bg-color-white: white;
     --light-grey: lightgrey;
     --title-color: #2f2f2f;
     --font-size-icon: 12px;
@@ -37,7 +37,7 @@ body {
     color: var(--color-text-primary);
     font-size: 17px;
     -webkit-font-smoothing: antialiased;
-    background-color: var(--bg-color)
+    background-color: var(--bg-color-white)
 }
 
 section, [id] {
