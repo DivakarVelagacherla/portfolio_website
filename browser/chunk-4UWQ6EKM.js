@@ -1,0 +1,1 @@
+import{ya as t}from"./chunk-B7O4CN3M.js";var p=class e{static \u0275fac=function(o){return new(o||e)};static \u0275cmp=t({type:e,selectors:[["app-photography"]],decls:0,vars:0,template:function(o,n){},encapsulation:2})};export{p as Photography};
