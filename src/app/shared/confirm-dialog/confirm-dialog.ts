@@ -5,7 +5,7 @@ import { Button } from '../button/button';
 
 @Component({
   selector: 'app-confirm-dialog',
-  imports: [CommonModule, Button],
+  imports: [CommonModule],
   templateUrl: './confirm-dialog.html',
   styleUrl: './confirm-dialog.css',
 })
