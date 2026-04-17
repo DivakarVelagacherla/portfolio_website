@@ -9,6 +9,7 @@ import { TechStack } from '../../core/tech-stack/tech-stack';
 import { WorkExperience } from '../../core/work-experience/work-experience';
 import { EducationComponent } from '../../core/education-component/education-component';
 import { BlogPostsComponent } from '../../core/blog-post-component/blog-posts-component';
+import { Footer } from '../../core/footer/footer';
 
 @Component({
   selector: 'app-engineering',
@@ -22,6 +23,7 @@ import { BlogPostsComponent } from '../../core/blog-post-component/blog-posts-co
     WorkExperience,
     EducationComponent,
     BlogPostsComponent,
+    Footer,
   ],
   templateUrl: './engineering.html',
   styleUrl: './engineering.css',
