@@ -1,13 +1,10 @@
 .locations {
-    /* margin-top: 26px; */
     display: flex;
     flex-direction: row;
-    text-align: center;
-    align-items: center;
-    justify-self: center;
     padding: 32px;
     gap: 6px;
     font-size: 12px;
+    justify-content: center;
 }
 
 img {
