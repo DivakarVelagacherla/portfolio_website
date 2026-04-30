@@ -18,3 +18,19 @@ img {
 .location-text {
     font-style: italic;
 }
+
+.locations > * {
+    animation: slideUp 1.0s ease both;
+}
+
+.locations > *:nth-child(1) { animation-delay: 1.00s; }
+.locations > *:nth-child(2) { animation-delay: 1.15s; }
+.locations > *:nth-child(3) { animation-delay: 1.30s; }
+.locations > *:nth-child(4) { animation-delay: 1.45s; }
+.locations > *:nth-child(5) { animation-delay: 1.60s; }
+
+@media (max-width: 786px) {
+    .locations {
+        padding: 22px;
+    }
+}

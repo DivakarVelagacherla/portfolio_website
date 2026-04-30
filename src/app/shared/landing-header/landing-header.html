@@ -6,7 +6,18 @@
             <a routerLink="/engineering" [style.--page-gradient]="theme.pageGradient()" routerLinkActive="link-active">Engineering</a>
             <a routerLink="/photography" [style.--page-gradient]="theme.pageGradient()" routerLinkActive="link-active">Photography</a>
             <!-- <a routerLink="/learn" [style.--page-gradient]="theme.pageGradient()" routerLinkActive="link-active">Learn</a> -->
-        </div>  
+        </div>
+
+        <button class="hamburger" (click)="toggleMenu()">
+            <span *ngIf="!isMenuOpen">☰</span>
+            <span *ngIf="isMenuOpen">x</span>
+        </button>  
+
+    </div>
+    <div class="mobile-nav" [class.open]="isMenuOpen">
+        <a routerLink="/engineering" [style.--page-gradient]="theme.pageGradient()" routerLinkActive="link-active" (click)="toggleMenu()">Engineering</a>
+        <a routerLink="/photography" [style.--page-gradient]="theme.pageGradient()" routerLinkActive="link-active" (click)="toggleMenu()">Photography</a>
     </div>
 </header>
 <div class="line-break"></div>
+<div class="page-transparent" [class.open]="isMenuOpen" (click)="toggleMenu()"></div>

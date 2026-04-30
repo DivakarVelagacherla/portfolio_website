@@ -6,6 +6,4 @@ import { Component } from '@angular/core';
   templateUrl: './quote-section.html',
   styleUrl: './quote-section.css',
 })
-export class QuoteSection {
-
-}
+export class QuoteSection {}
