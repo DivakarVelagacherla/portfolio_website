@@ -1,3 +1,7 @@
+:host {
+    --page-gradient: linear-gradient(360deg, oklch(0.77 0.09 240.14) 30%, #028cdf, #1b8fe7, #5bb5cf);
+}
+
 .line-break {
     margin-top: 22px;
 }
