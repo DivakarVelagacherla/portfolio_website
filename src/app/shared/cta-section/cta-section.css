@@ -10,11 +10,14 @@
 .cta-logo {
   height: 36px;
   width: 36px;
+  border-radius: 8px;
   transition: transform 0.3s ease;
 }
 
 .cta-logo:hover{
   transform: scale(1.4);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
 }
 
 /* Target the Angular component tags instead */
@@ -35,3 +38,15 @@
 /* .cta-icon-github {
   filter: invert(90%);
 } */
+
+@media (max-width: 768px) {
+  .cta-container {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+
+  .cta-logo {
+    height: 28px;
+    width: 28px;
+  }
+}

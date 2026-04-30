@@ -7,7 +7,7 @@
     color: var(--title-color);
     opacity: 0;
     font-weight: 400;
-    font-size: 17px;
+    font-size: clamp(11px, 4vw, 17px);
     margin-top: 48px;
     animation: slideUp 0.8s ease forwards;
 }
@@ -21,7 +21,7 @@
 }
 
 .page-title span {
-  font-size: 80px;
+  font-size: clamp(52px, 10vw, 80px);
   font-weight: 700;
   line-height: 1;
 }
@@ -35,10 +35,16 @@
     transform: scaleY(0.9);
     color: var(--title-color);
     margin-top: 8px;
-    font-size: 28px;
+    font-size: clamp(18px, 4vw, 28px);
     font-weight: 300;
     line-height: 1.5;
     font-style: italic;
     opacity: 0;
     animation: slideUp 0.8s ease 0.4s forwards;
+}
+
+@media (max-width: 768px) {
+  .profile-name {
+    margin-top: 17px;
+  }
 }
