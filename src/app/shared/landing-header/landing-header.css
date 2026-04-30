@@ -24,6 +24,7 @@
 .landing-nav{
     display: flex;
     gap: 48px;
+    align-items: center;
 }
 
 .landing-nav a {
