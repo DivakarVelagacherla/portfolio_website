@@ -43,7 +43,8 @@
 
 .experience-role {
     margin-top: 6px;
-    font-size: 26px;
+    /* font-size: 26px; */
+    font-size: clamp(18px, 4vw, 26px);
     font-weight: 600;
     letter-spacing: -0.3px;
 }
@@ -71,4 +72,41 @@
 
 .tech-tags {
     margin-top: 26px;
+}
+
+
+@media (max-width: 786px) {
+    .experience-group{
+        margin-bottom: 21px;
+        padding-left: 21px;
+    }
+
+    .experience-group::before{
+        content: '';
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        background: var(--accent-color);
+        border: 1.5px solid var(--bg-color-white);
+        box-shadow: 0 0 0 1.5px var(--accent-color);
+        border-radius: 50%;
+        left: -3px;
+        top: 6.5px;
+    }
+
+    .experience-date {
+        font-size: 11px;
+    }
+
+    .experience-company{
+        font-size: 12px;
+    }
+
+    .experience-location {
+        font-size: 11px;
+    }
+
+    .experience-description {
+        font-size: 14px;
+    }
 }

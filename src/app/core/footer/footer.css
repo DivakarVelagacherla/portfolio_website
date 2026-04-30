@@ -5,12 +5,13 @@
     z-index: 99999;
     width: 100%;
     background-color: var(--bg-color-white);
-    height: 26px;
+    /* height: 26px; */
+    height: clamp(16px, 3vw, 26px);
 }
 
 
 .footer {
-    font-size: 12px;
+    font-size: clamp(6px, 2vw, 12px);
     text-align: center;
     font-style: italic;
     display: flex;
@@ -30,4 +31,22 @@
 .footer-right{
     margin-top: 5px;
     margin-right: 21px;
+}
+
+@media (max-width: 786px) {
+    .footer-right {
+        display: none;
+    }
+
+    .footer-left .footer-right{
+        padding: 6px;
+    }
+    
+    .footer-left{
+        padding-top: 2px;
+    }
+
+    .footer-right{
+        margin-top: 2px;
+    }
 }

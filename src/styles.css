@@ -128,7 +128,8 @@ a:hover {
   margin-bottom: 22px;
   padding: 12px 0;
   color: var(--color-text-primary);
-  font-size: 48px;
+  /* font-size: 48px; */
+  font-size: clamp(32px, 4vw, 48px);
   font-weight: 700;
 }
 
@@ -148,7 +149,6 @@ a:hover {
   font-weight: 500;
   font-size: 14px;
   background-color: var(--tag-bg);
-
 }
 
 .primary {
@@ -210,6 +210,20 @@ a:hover {
   }
   to {
     transform: translateY(0);
+  }
+  
+}
+
+@media (max-width: 786px) {
+  .tech-tags {
+    row-gap: 12px;
+    column-gap: 6px;
+  }
+
+  .tech-tag{
+    padding: 3px 6px;
+    font-weight: 500;
+    font-size: 11px;
   }
   
 }
