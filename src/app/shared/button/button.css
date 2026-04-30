@@ -1,8 +1,7 @@
 .button {
     display: inline-block;
     text-align: center;
-    min-width: 160px;
-    width: 160px;
+    width: clamp(80px, 40vw, 160px);
     padding: 11px 24px;
     font-size: 15px;
     border-radius: 980px;
@@ -37,4 +36,11 @@
     background: var(--accent-color);
     color: var(--bg-color-white);
     border-color: var(--accent-color);
+}
+
+@media (max-width: 768px) {
+  .button {
+    font-size: 13px;
+    padding: 9px 16px;
+  }
 }

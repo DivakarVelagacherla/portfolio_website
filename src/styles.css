@@ -128,7 +128,8 @@ a:hover {
   margin-bottom: 22px;
   padding: 12px 0;
   color: var(--color-text-primary);
-  font-size: 48px;
+  /* font-size: 48px; */
+  font-size: clamp(32px, 4vw, 48px);
   font-weight: 700;
 }
 

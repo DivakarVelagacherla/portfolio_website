@@ -50,18 +50,29 @@
 .stats:nth-child(5) { animation-delay: 0.6s; }
 
 .stats-number {
-    font-size: 36px;
+    font-size: clamp(24px, 4vw, 36px);
     font-weight: 700;
 }
 
 .stats-label {
     color: var(--color-text-primary);
     font-weight: 200;
-    font-size: 12px;
+    font-size: clamp(6px, 2vw, 12px);
 }
 
 sup{
     font-size: 14px;
     font-weight: 400;
     color: var(--color-text-secondary);
+}
+
+@media (max-width: 786px) {
+    .dashboard-label {
+        margin-top: 28px;
+        margin-bottom: 5px;
+    }
+
+    .stats {
+        /* justify-content: space-evenly; */
+    }
 }
