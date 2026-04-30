@@ -17,12 +17,8 @@ export class BlogPostsComponent implements OnInit {
   currentPage: number = 0;
   pageSize: number = 6;
   pagedPosts: BlogPost[][] = [];
-  private isWheeling: boolean = false;
 
-  constructor(
-    private blogPostService: BlogPostsService,
-    private ngZone: NgZone,
-  ) {}
+  constructor(private blogPostService: BlogPostsService) {}
 
   ngOnInit(): void {
     this.allBlogPosts = this.blogPostService.getBlogPosts();
@@ -37,33 +33,18 @@ export class BlogPostsComponent implements OnInit {
     return post.slug;
   }
 
-  onClickPageDot(pageNo: number): void {
-    this.currentPage = pageNo;
+  onClickPageDot(page: number): void {
+    this.currentPage = page;
+    const slider = document.querySelector('.slider-wrapper') as HTMLElement;
+    slider.scrollTo({
+      left: page * slider.clientWidth,
+      behavior: 'smooth',
+    });
   }
 
-  onWheelSwipe(event: WheelEvent): void {
-    console.log(event);
-    // event.preventDefault();
-
-    if (this.isWheeling) return;
-
-    if (event.deltaX > 15) {
-      event.preventDefault();
-      this.isWheeling = true;
-      if (this.currentPage < this.totalPages - 1) {
-        this.currentPage++;
-      }
-      setTimeout(() => (this.isWheeling = false), 500);
-    }
-
-    if (event.deltaX < -15) {
-      event.preventDefault();
-      this.isWheeling = true;
-      if (this.currentPage > 0) {
-        this.currentPage--;
-      }
-
-      setTimeout(() => (this.isWheeling = false), 500);
-    }
+  onSliderScroll(event: Event): void {
+    const slider = event.target as HTMLElement;
+    const pageWidth = slider.clientWidth;
+    this.currentPage = Math.round(slider.scrollLeft / pageWidth);
   }
 }

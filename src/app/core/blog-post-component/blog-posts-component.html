@@ -1,8 +1,7 @@
 <div class="experience-heading" id="Blogs">Technical Blogs</div>
 <div class="slider-wrapper"
-    (wheel)="onWheelSwipe($event)">
-    <div class="slider-tracker"
-        [style.transform]="'translateX(-' + (currentPage * 100) + '%)'">
+    (scroll)=onSliderScroll($event)>
+    <div class="slider-tracker">
         <div class="slider-pages" *ngFor="let page of pagedPosts">
             <div class="blog-post-grid">
                 <app-blog-post-card *ngFor="let post of page; trackBy: trackBySlug"
