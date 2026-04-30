@@ -43,11 +43,12 @@ export class BlogPostsComponent implements OnInit {
 
   onWheelSwipe(event: WheelEvent): void {
     console.log(event);
-    event.preventDefault();
+    // event.preventDefault();
 
     if (this.isWheeling) return;
 
     if (event.deltaX > 15) {
+      event.preventDefault();
       this.isWheeling = true;
       if (this.currentPage < this.totalPages - 1) {
         this.currentPage++;
@@ -56,6 +57,7 @@ export class BlogPostsComponent implements OnInit {
     }
 
     if (event.deltaX < -15) {
+      event.preventDefault();
       this.isWheeling = true;
       if (this.currentPage > 0) {
         this.currentPage--;

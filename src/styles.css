@@ -149,7 +149,6 @@ a:hover {
   font-weight: 500;
   font-size: 14px;
   background-color: var(--tag-bg);
-
 }
 
 .primary {
@@ -211,6 +210,20 @@ a:hover {
   }
   to {
     transform: translateY(0);
+  }
+  
+}
+
+@media (max-width: 786px) {
+  .tech-tags {
+    row-gap: 12px;
+    column-gap: 6px;
+  }
+
+  .tech-tag{
+    padding: 3px 6px;
+    font-weight: 500;
+    font-size: 11px;
   }
   
 }

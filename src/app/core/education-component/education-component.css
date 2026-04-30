@@ -3,13 +3,14 @@
     margin-bottom: 24px;
     background-color: var(--card-bg-color);
     border-radius: 18px;
-    max-width: 980px;
+    width: clamp(350px, 90%, 980px);
 }
 
 .education-section {
     display: flex;
     flex-direction: row;
     gap: 48px;
+    align-items: center;
 }
 
 .education-logo {
@@ -38,3 +39,29 @@
     font-size: 14px;
 }
 
+@media (max-width: 786px) {
+    .education-list {
+        padding: 12px 12px;
+    }
+
+    .education-section {
+        gap: 22px;
+    }
+
+    .education-logo {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .education-degree {
+        font-size: 14px;
+    }
+
+    .education-university {
+        font-size: 12px;
+    }
+
+    .education-timeline {
+        font-size: 9px;
+    }
+}
