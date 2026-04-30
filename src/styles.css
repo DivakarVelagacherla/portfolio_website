@@ -151,8 +151,8 @@ a:hover {
 }
 
 .primary {
-    background-color: var(--tag-bg-primary);
-    color: var(--tag-color);
+  background-color: var(--tag-bg-primary);
+  color: var(--tag-color);
 }
 
 @keyframes expandLine {
@@ -201,4 +201,14 @@ a:hover {
     opacity: 0.4; 
     transform: scale(0.75); 
   } 
+}
+
+@keyframes slideFromTop {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+  
 }
