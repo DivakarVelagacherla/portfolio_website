@@ -46,10 +46,6 @@
     color: var(--color-text-primary);
 }
 
-svg {
-  transition: opacity 0.2s ease;
-}
-
 /* mobile css */
 @media (max-width: 786px) {
     .hamburger {
