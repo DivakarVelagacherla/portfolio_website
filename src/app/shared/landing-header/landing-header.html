@@ -1,13 +1,13 @@
 <header>
     <div class ="landing-header-container">
         <a class = "logo apple-gradient" [style.--page-gradient]="theme.pageGradient()" routerLink="/" routerLinkActive="" [routerLinkActiveOptions]="{exact: true}">DV</a>
-        <svg *ngIf="!darkMode.isDarkMode()" (click)="darkMode.toggleTheme()" 
+        <svg [style.display]="!darkMode.isDarkMode() ? 'block' : 'none'" (click)="darkMode.toggleTheme()" 
             width="18" height="18" viewBox="0 0 24 24" fill="none" 
             stroke="currentColor" stroke-width="2" style="cursor:pointer">
         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
         </svg>
 
-        <svg *ngIf="darkMode.isDarkMode()" (click)="darkMode.toggleTheme()"
+        <svg [style.display]="darkMode.isDarkMode() ? 'block' : 'none'" (click)="darkMode.toggleTheme()"
             width="18" height="18" viewBox="0 0 24 24" fill="none"
             stroke="currentColor" stroke-width="2" style="cursor:pointer">
         <circle cx="12" cy="12" r="5"/>
