@@ -1,6 +1,8 @@
 <header>
     <div class ="landing-header-container">
         <a class = "logo apple-gradient" [style.--page-gradient]="theme.pageGradient()" routerLink="/" routerLinkActive="" [routerLinkActiveOptions]="{exact: true}">DV</a>
+        <img src="assets/logo-moon.png" alt="toggle dark mode" *ngIf="!darkMode.isDarkMode()" (click)="darkMode.toggleTheme()">
+        <img src="assets/logo-sun.png" alt="toggle light mode" *ngIf="darkMode.isDarkMode()" (click)="darkMode.toggleTheme()">
         <div class = "spacer"></div>
         <div class="landing-nav">
             <a routerLink="/engineering" [style.--page-gradient]="theme.pageGradient()" routerLinkActive="link-active">Engineering</a>

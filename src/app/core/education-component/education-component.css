@@ -3,7 +3,7 @@
     margin-bottom: 24px;
     background-color: var(--card-bg-color);
     border-radius: 18px;
-    width: clamp(350px, 90%, 980px);
+    width: clamp(280px, 90%, 980px);
 }
 
 .education-section {
@@ -33,7 +33,6 @@
 .education-timeline {
     margin-top: 12px;
     color: var(--color-text-secondary);
-    min-width: 200px;
     flex-shrink: 0;
     font-weight: 500;
     font-size: 14px;
