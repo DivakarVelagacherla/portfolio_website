@@ -52,7 +52,8 @@ export class StatsService {
   }
 
   fetchLiveStats() {
-    return this.http.get<any>(this.statsUrl);
+    const cacheBuster = new Date().getTime();
+    return this.http.get<any>(`${this.statsUrl}?t=${cacheBuster}`);
   }
 
   private calculateYoe(): number {
