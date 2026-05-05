@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, effect } from '@angular/core';
+import { StatsService } from '../../services/stats';
 
 @Component({
   selector: 'app-currently-card',
@@ -6,11 +7,13 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './currently-card.html',
   styleUrl: './currently-card.css',
 })
-export class CurrentlyCard implements OnInit {
-  problemsSolved: number = 59;
+export class CurrentlyCard {
   width: number = 0;
 
-  ngOnInit(): void {
-    this.width = (this.problemsSolved / 300) * 100;
+  constructor(public statsService: StatsService) {
+    effect(() => {
+      const problemsSolved = this.statsService.stats().totalLeetcodeSolved;
+      this.width = (problemsSolved / 300) * 100;
+    });
   }
 }

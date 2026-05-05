@@ -1,23 +1,23 @@
 <div class="dashboard-label">Live Dashboard - Updated Daily</div>
 <div class="dashboard-container">
     <div class="stats">
-        <div class="stats-number"><span #yoeEl>{{stats?.yearsOfExperience}}</span><sup>+</sup></div>
+        <div class="stats-number"><span #yoeEl>{{statsService.stats().yearsOfExperience}}</span><sup>+</sup></div>
         <span class="stats-label">Years of Experience</span>
     </div>
     <div class="stats">
-        <div class="stats-number" #totalReposEl>{{stats?.totalRepos}}</div>
+        <div class="stats-number" #totalReposEl>{{statsService.stats().totalRepos}}</div>
         <span class="stats-label">Total Repos</span>
     </div>
     <div class="stats">
-        <div class="stats-number" #totalCommitsEl>{{stats?.totalCommits}}</div>
+        <div class="stats-number" #totalCommitsEl>{{statsService.stats().totalCommits}}</div>
         <span class="stats-label">Total Commits</span>
     </div>
     <div class="stats">
-        <div class="stats-number" #totalPrsEl>{{stats?.totalPrs}}</div>
+        <div class="stats-number" #totalPrsEl>{{statsService.stats().totalPrs}}</div>
         <span class="stats-label">Total PR's</span>
     </div>
     <div class="stats">
-        <div class="stats-number" #totalLeetcodeEl>{{stats?.totalLeetcodeSolved}}</div>
+        <div class="stats-number" #totalLeetcodeEl>{{statsService.stats().totalLeetcodeSolved}}</div>
         <span class="stats-label">Leetcode Solved</span>
     </div>
 </div>

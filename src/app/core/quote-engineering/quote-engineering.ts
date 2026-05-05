@@ -1,6 +1,7 @@
-import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, ElementRef, ViewChild, effect } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { animateCounter } from '../../utils/count-animation.utils';
+import { StatsService } from '../../services/stats';
 
 @Component({
   selector: 'app-quote-engineering',
@@ -8,12 +9,15 @@ import { animateCounter } from '../../utils/count-animation.utils';
   templateUrl: './quote-engineering.html',
   styleUrl: './quote-engineering.css',
 })
-export class QuoteEngineering implements AfterViewInit {
-  loc: number = 28909;
-
+export class QuoteEngineering {
   @ViewChild('locEl') locEl!: ElementRef;
 
-  ngAfterViewInit(): void {
-    animateCounter(this.loc, this.locEl.nativeElement, 1500);
+  constructor(public statsService: StatsService) {
+    effect(() => {
+      const loc = this.statsService.stats().loc;
+      if (this.locEl) {
+        animateCounter(loc, this.locEl.nativeElement, 1500);
+      }
+    });
   }
 }
