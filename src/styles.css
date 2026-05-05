@@ -17,6 +17,7 @@
   --pagination-dot-color: #d1d1d6;
   --page-transparent-color: rgba(0, 0, 0, 0.3);
   --color-line-break: rgba(0, 0, 0, 0.1);
+  --hover-bg-color: #f0f0f0;
 }
 
 /* greyish black */
@@ -38,25 +39,6 @@
   --color-line-break: rgba(255, 255, 255, 0.1);
 } */
 
-/* black but too harsh */
-/* [data-theme="dark"] {
-  --bg-color-white: #000000;
-  --color-text-secondary: #a1a1a6;
-  --tag-bg: #1a1a1a;
-  --tag-bg-primary: #0071e320;
-  --tag-color: #2997ff;
-  --ink-muted: #6e6e73;
-  --color-text-primary: #f5f5f7;
-  --color-text-hover: #ffffff;
-  --light-grey: #2a2a2a;
-  --title-color: #f0f0f2;
-  --card-bg-color: #111111;
-  --accent-color: #2997ff;
-  --pagination-dot-color: #3a3a3a;
-  --page-transparent-color: rgba(0, 0, 0, 0.8);
-  --color-line-break: rgba(255, 255, 255, 0.08);
-} */
-
 /* not too harsh but black */
 [data-theme="dark"] {
   --bg-color-white: #0a0a0a;
@@ -74,6 +56,7 @@
   --pagination-dot-color: #3a3a3a;
   --page-transparent-color: rgba(0, 0, 0, 0.75);
   --color-line-break: rgba(255, 255, 255, 0.08);
+  --hover-bg-color: #1a1a1a;
 }
 
 [data-theme="dark"] .cta-icon-github {
@@ -84,7 +67,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease;
+    transition: background-color 0.3s ease, color 0.1s ease, border-color 0.5s ease;
 }
 
 body {
