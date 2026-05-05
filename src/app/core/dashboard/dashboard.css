@@ -40,7 +40,7 @@
 }
 
 .stats:hover {
-    background-color: #f0f0f0;
+    background-color: var(--hover-bg-color);
 }
 
 .stats:nth-child(1) { animation-delay: 0.2s; }

@@ -24,7 +24,7 @@
 }
 
 .confirm-dialog-container {
-  background: white;
+  background: var(--bg-color-white);
   border-radius: 16px;
   padding: 32px;
   width: 400px;
