@@ -1,4 +1,4 @@
-import { Component, OnInit, NgZone } from '@angular/core';
+import { Component, OnInit, NgZone, ChangeDetectorRef } from '@angular/core';
 import { BlogPost } from '../../models/blog-post.model';
 import { BlogPostsService } from '../../services/blog-post';
 import { CommonModule } from '@angular/common';
@@ -18,15 +18,22 @@ export class BlogPostsComponent implements OnInit {
   pageSize: number = 6;
   pagedPosts: BlogPost[][] = [];
 
-  constructor(private blogPostService: BlogPostsService) {}
+  constructor(
+    private blogPostService: BlogPostsService,
+    private cdr: ChangeDetectorRef,
+  ) {}
 
   ngOnInit(): void {
-    this.allBlogPosts = this.blogPostService.getBlogPosts();
-    this.totalPages = Math.ceil(this.allBlogPosts.length / this.pageSize);
+    this.blogPostService.getBlogPosts().subscribe((posts) => {
+      this.allBlogPosts = posts.sort((a, b) => b.date.getTime() - a.date.getTime());
+      this.totalPages = Math.ceil(this.allBlogPosts.length / this.pageSize);
 
-    for (let i = 0; i < this.allBlogPosts.length; i += this.pageSize) {
-      this.pagedPosts.push(this.allBlogPosts.slice(i, i + this.pageSize));
-    }
+      this.pagedPosts = [];
+      for (let i = 0; i < this.allBlogPosts.length; i += this.pageSize) {
+        this.pagedPosts.push(this.allBlogPosts.slice(i, i + this.pageSize));
+      }
+      this.cdr.detectChanges();
+    });
   }
 
   trackBySlug(_index: number, post: BlogPost): string {
