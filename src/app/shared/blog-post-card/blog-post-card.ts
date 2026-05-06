@@ -1,7 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BlogPost } from '../../models/blog-post.model';
-import { BlogPostsService } from '../../services/blog-post';
 
 @Component({
   selector: 'app-blog-post-card',
@@ -11,4 +10,5 @@ import { BlogPostsService } from '../../services/blog-post';
 })
 export class BlogPostCard {
   @Input() post!: BlogPost;
+  @Output() onReadMore = new EventEmitter<BlogPost>();
 }

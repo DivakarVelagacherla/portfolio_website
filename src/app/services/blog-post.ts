@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { BlogPost } from '../models/blog-post.model';
 import { map, switchMap } from 'rxjs/operators';
 import { forkJoin } from 'rxjs';
+import { marked } from 'marked';
 
 @Injectable({
   providedIn: 'root',
@@ -62,7 +63,7 @@ export class BlogPostsService {
           categories: metadata['categories']?.split(',').map((c: string) => c.trim()) || [],
           readTime: parseInt(metadata['readTime']),
           summary: metadata['summary'],
-          content: content,
+          content: marked(content) as string,
         } as BlogPost;
       }),
     );

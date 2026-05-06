@@ -1,0 +1,10 @@
+<div class="modal-overlay" *ngIf="isOpen" (click)="onClose.emit()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <button class="modal-close" (click)="onClose.emit()">×</button>
+    <div *ngIf="post">
+      <div class="modal-date">{{post.date | date: 'MMM dd, yyyy'}}</div>
+      <h2 class="modal-title">{{post.title}}</h2>
+      <div class="modal-article" [innerHTML]="post.content"></div>
+    </div>
+  </div>
+</div>
