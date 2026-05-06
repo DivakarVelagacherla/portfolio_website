@@ -6,6 +6,14 @@
     if (theme) {
       document.documentElement.setAttribute('data-theme', theme);
     }
+    document.documentElement.classList.add('no-transition');
+    window.addEventListener('DOMContentLoaded', function () {
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          document.documentElement.classList.remove('no-transition');
+        });
+      });
+    });
   </script>
   <meta charset="utf-8">
   <title>DV Portfolio</title>

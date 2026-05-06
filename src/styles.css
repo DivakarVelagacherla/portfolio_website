@@ -63,6 +63,10 @@
   filter: invert(1);
 }
 
+html.no-transition * {
+  transition: none !important;
+}
+
 * {
     margin: 0;
     padding: 0;
