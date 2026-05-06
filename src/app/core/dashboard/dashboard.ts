@@ -32,12 +32,11 @@ export class Dashboard implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    if (this.stats) {
-      animateCounter(this.stats.yearsOfExperience, this.yoeEl.nativeElement, 1000);
-      animateCounter(this.stats.totalRepos, this.totalReposEl.nativeElement, 1000);
-      animateCounter(this.stats.totalCommits, this.totalCommitsEl.nativeElement, 1000);
-      animateCounter(this.stats.totalPrs, this.totalPrsEl.nativeElement, 1000);
-      animateCounter(this.stats.totalLeetcodeSolved, this.totalLeetcodeEl.nativeElement, 1000);
-    }
+    const stats = this.statsService.stats();
+    animateCounter(stats.yearsOfExperience, this.yoeEl.nativeElement, 1000);
+    animateCounter(stats.totalRepos, this.totalReposEl.nativeElement, 1000);
+    animateCounter(stats.totalCommits, this.totalCommitsEl.nativeElement, 1000);
+    animateCounter(stats.totalPrs, this.totalPrsEl.nativeElement, 1000);
+    animateCounter(stats.totalLeetcodeSolved, this.totalLeetcodeEl.nativeElement, 1000);
   }
 }
