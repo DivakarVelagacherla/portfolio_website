@@ -10,8 +10,6 @@ import { animateCounter } from '../../utils/count-animation.utils';
   styleUrl: './dashboard.css',
 })
 export class Dashboard implements AfterViewInit {
-  stats: Stats | null = null;
-
   @ViewChild('yoeEl') yoeEl!: ElementRef;
   @ViewChild('totalReposEl') totalReposEl!: ElementRef;
   @ViewChild('totalCommitsEl') totalCommitsEl!: ElementRef;
@@ -32,11 +30,13 @@ export class Dashboard implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    const stats = this.statsService.stats();
-    animateCounter(stats.yearsOfExperience, this.yoeEl.nativeElement, 1000);
-    animateCounter(stats.totalRepos, this.totalReposEl.nativeElement, 1000);
-    animateCounter(stats.totalCommits, this.totalCommitsEl.nativeElement, 1000);
-    animateCounter(stats.totalPrs, this.totalPrsEl.nativeElement, 1000);
-    animateCounter(stats.totalLeetcodeSolved, this.totalLeetcodeEl.nativeElement, 1000);
+    setTimeout(() => {
+      const stats = this.statsService.stats();
+      animateCounter(stats.yearsOfExperience, this.yoeEl.nativeElement, 1000);
+      animateCounter(stats.totalRepos, this.totalReposEl.nativeElement, 1000);
+      animateCounter(stats.totalCommits, this.totalCommitsEl.nativeElement, 1000);
+      animateCounter(stats.totalPrs, this.totalPrsEl.nativeElement, 1000);
+      animateCounter(stats.totalLeetcodeSolved, this.totalLeetcodeEl.nativeElement, 1000);
+    }, 100);
   }
 }
