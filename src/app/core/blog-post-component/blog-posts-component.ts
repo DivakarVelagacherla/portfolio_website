@@ -1,13 +1,14 @@
-import { Component, OnInit, NgZone } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { BlogPost } from '../../models/blog-post.model';
 import { BlogPostsService } from '../../services/blog-post';
 import { CommonModule } from '@angular/common';
 import { BlogPostCard } from '../../shared/blog-post-card/blog-post-card';
 import { PaginationComponent } from '../../shared/pagination/pagination';
+import { BlogContentModal } from '../../shared/blog-content-modal/blog-content-modal';
 
 @Component({
   selector: 'app-blog-posts-component',
-  imports: [CommonModule, BlogPostCard, PaginationComponent],
+  imports: [CommonModule, BlogPostCard, PaginationComponent, BlogContentModal],
   templateUrl: './blog-posts-component.html',
   styleUrl: './blog-posts-component.css',
 })
@@ -17,16 +18,37 @@ export class BlogPostsComponent implements OnInit {
   currentPage: number = 0;
   pageSize: number = 6;
   pagedPosts: BlogPost[][] = [];
+  isModalOpen: boolean = false;
+  selectedPost: BlogPost | null = null;
 
-  constructor(private blogPostService: BlogPostsService) {}
+  constructor(
+    private blogPostService: BlogPostsService,
+    private cdr: ChangeDetectorRef,
+  ) {}
 
   ngOnInit(): void {
-    this.allBlogPosts = this.blogPostService.getBlogPosts();
-    this.totalPages = Math.ceil(this.allBlogPosts.length / this.pageSize);
+    this.blogPostService.getBlogPosts().subscribe((posts) => {
+      this.allBlogPosts = posts.sort((a, b) => b.date.getTime() - a.date.getTime());
+      this.totalPages = Math.ceil(this.allBlogPosts.length / this.pageSize);
+      this.pagedPosts = [];
+      for (let i = 0; i < this.allBlogPosts.length; i += this.pageSize) {
+        this.pagedPosts.push(this.allBlogPosts.slice(i, i + this.pageSize));
+      }
+      this.cdr.detectChanges();
+    });
+  }
 
-    for (let i = 0; i < this.allBlogPosts.length; i += this.pageSize) {
-      this.pagedPosts.push(this.allBlogPosts.slice(i, i + this.pageSize));
-    }
+  openPost(post: BlogPost): void {
+    this.blogPostService.fetchPost(post.slug).subscribe((fullPost) => {
+      this.selectedPost = fullPost;
+      this.isModalOpen = true;
+      this.cdr.detectChanges();
+    });
+  }
+
+  closePost(): void {
+    this.isModalOpen = false;
+    this.selectedPost = null;
   }
 
   trackBySlug(_index: number, post: BlogPost): string {
