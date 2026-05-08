@@ -16,19 +16,19 @@
 }
 
 .title-light {
-    background: linear-gradient(360deg, #ff9a6c 30%, #d46836, #de6c3a, #a6603f);
+    background: var(--gradient-apple-orange);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .title-shadow {
-    background: linear-gradient(360deg, #a0a0a0 30%, #808080, #606060, #484848);
+    background: var(--gradient-apple-shadow);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .title-story {
-    background: linear-gradient(360deg, #2cd1d1 30%, #2AA8A8, #1da3a3, #1bcaca);
+    background: var(--gradient-apple-teal);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }

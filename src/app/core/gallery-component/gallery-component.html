@@ -1,1 +1,49 @@
-<p>gallery-component works!</p>
+<div class="gallery-section">
+
+  <span class="gallery-eyebrow">GALLERY</span>
+  <h2 class="gallery-title">Moments I chose to keep forever.</h2>
+
+  <div class="gallery-wrapper">
+
+    <div class="gallery-row row-1">
+      <div class="gallery-tracker">
+        <div class="gallery-card"
+             *ngFor="let card of row1Cards"
+             [style.transform]="getTransform(card.progress, row1CardWidth)"
+             [style.transition]="card.noTransition ? 'none' : 'transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1)'">
+          <img [src]="getImageUrl(card.photo.key, 1200)" [alt]="card.photo.alt">
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery-row row-2">
+      <div class="gallery-tracker">
+        <div class="gallery-card"
+             *ngFor="let card of row2Cards"
+             [style.transform]="getTransform(card.progress, row2CardWidth)"
+             [style.transition]="card.noTransition ? 'none' : 'transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1)'">
+          <img [src]="getImageUrl(card.photo.key, 400)" [alt]="card.photo.alt">
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="gallery-controls">
+    <div class="controls-left"></div>
+      <div class="dots">
+        <span class="dot"
+            *ngFor="let card of getVisibleDots(); let i = index"
+            [class.active]="card.progress === 0"
+            (click)="goToIndex(getActiveDotIndex() + i - 3)">
+        </span>
+    </div>
+    <div class="controls-right">
+      <button class="pause-btn" (click)="pausePlay()">
+        <span *ngIf="isPlaying">&#9646;&#9646;</span>
+        <span *ngIf="!isPlaying">&#9654;</span>
+      </button>
+    </div>
+  </div>
+
+</div>
