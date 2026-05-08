@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, ChangeDetectorRef, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PhotoService } from '../../services/photo-service';
 import { Photo } from '../../models/photo';
@@ -15,15 +15,12 @@ export class GalleryComponent implements OnInit, OnDestroy {
   row2Cards: GalleryCard[] = [];
   isPlaying: boolean = true;
   private intervalId: any;
+  selectedCard: GalleryCard | null = null;
+  selectedIndex: number = 0;
+  allCards: GalleryCard[] = [];
 
-  // two viewports height
   readonly row1CardWidth = 1250;
   readonly row2CardWidth = 470;
-
-  // one viewport height
-  // readonly row1CardWidth = 900;
-  // readonly row2CardWidth = 340;
-
   readonly gap = 24;
 
   constructor(
@@ -45,6 +42,12 @@ export class GalleryComponent implements OnInit, OnDestroy {
       this.row2Cards = row2Photos.map((photo: Photo, index: number) => ({
         photo,
         progress: index,
+        noTransition: false,
+      }));
+
+      this.allCards = [...row1Photos, ...row2Photos].map((photo: Photo) => ({
+        photo,
+        progress: 0,
         noTransition: false,
       }));
 
@@ -87,7 +90,7 @@ export class GalleryComponent implements OnInit, OnDestroy {
   }
 
   startInterval() {
-    this.intervalId = setInterval(() => this.next(), 1200);
+    this.intervalId = setInterval(() => this.next(), 4200);
   }
 
   pausePlay() {
@@ -112,16 +115,6 @@ export class GalleryComponent implements OnInit, OnDestroy {
     return this.row1Cards.findIndex((c) => c.progress === 0);
   }
 
-  getDotsOffset(): string {
-    const activeIndex = this.getActiveDotIndex();
-    const dotWidth = 6;
-    const gap = 6;
-    const dotStep = dotWidth + gap;
-    const containerCenter = 60; // half of dots width (120px)
-    const offset = containerCenter - activeIndex * dotStep - dotWidth / 2;
-    return `translateX(${offset}px)`;
-  }
-
   getVisibleDots(): GalleryCard[] {
     const activeIndex = this.getActiveDotIndex();
     const start = Math.max(0, activeIndex - 3);
@@ -135,5 +128,36 @@ export class GalleryComponent implements OnInit, OnDestroy {
     if (steps > 0) {
       for (let i = 0; i < steps; i++) this.next();
     }
+  }
+
+  openLightbox(card: GalleryCard) {
+    this.selectedCard = card;
+    this.selectedIndex = this.allCards.findIndex((c) => c.photo.key === card.photo.key);
+    clearInterval(this.intervalId);
+    document.body.style.overflow = 'hidden';
+  }
+
+  closeLightbox() {
+    this.selectedCard = null;
+    document.body.style.overflow = '';
+    if (this.isPlaying) this.startInterval();
+  }
+
+  lightboxNext() {
+    this.selectedIndex = (this.selectedIndex + 1) % this.allCards.length;
+    this.selectedCard = this.allCards[this.selectedIndex];
+  }
+
+  lightboxPrev() {
+    this.selectedIndex = (this.selectedIndex - 1 + this.allCards.length) % this.allCards.length;
+    this.selectedCard = this.allCards[this.selectedIndex];
+  }
+
+  @HostListener('document:keydown', ['$event'])
+  handleKeydown(event: KeyboardEvent) {
+    if (!this.selectedCard) return;
+    if (event.key === 'Escape') this.closeLightbox();
+    if (event.key === 'ArrowRight') this.lightboxNext();
+    if (event.key === 'ArrowLeft') this.lightboxPrev();
   }
 }

@@ -27,7 +27,7 @@ export class PhotoService {
 
   getImageUrl(key: string, width?: number) {
     if (width) {
-      return `${this.imageResizeBaseUrl}/width=${width},quality=80,format=webp/${this.baseUrl}/${key}`;
+      return `${this.imageResizeBaseUrl}/width=${width},quality=90,format=webp/${this.baseUrl}/${key}`;
     }
 
     return `${this.baseUrl}/${key}`;
