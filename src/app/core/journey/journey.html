@@ -1,0 +1,48 @@
+<section class="journey-section">
+  <div class="journey-inner">
+
+    <div class="journey-photos">
+      <div class="journey-main-photo" *ngIf="mainPhoto">
+        <img [src]="getImageUrl(mainPhoto.key, 400)" [alt]="mainPhoto.alt">
+      </div>
+      <div class="journey-accent-photo" *ngIf="accentPhoto">
+        <img [src]="getImageUrl(accentPhoto.key, 200)" [alt]="accentPhoto.alt">
+      </div>
+    </div>
+
+    <div class="journey-text">
+      <span class="journey-eyebrow">THE JOURNEY</span>
+
+      <h2 class="journey-title">
+        It started with a <em class="journey-highlight">feeling</em>, not a plan.
+      </h2>
+
+      <p class="journey-body">
+        College. A cheap camera. No agenda. I just wanted to freeze things that
+        made me feel something. Somewhere along the way, I realised I had a natural eye.
+      </p>
+
+      <p class="journey-body">
+        I shoot nature, cars, streets, and the people I love. I don't take commissions.
+        I don't photograph strangers. If I haven't felt something around you, I won't
+        pretend through a lens.
+      </p>
+
+      <p class="journey-body">
+        My favourite shots aren't the dramatic ones. They're the ones nobody saw
+        coming — someone laughing too hard, a flower catching morning light, a
+        perfect moment nobody planned.
+      </p>
+
+      <div class="journey-divider"></div>
+
+      <ul class="journey-gear">
+        <li>Sony A7 IV — primary body</li>
+        <li>Sony 35mm f/1.8 — everyday</li>
+        <li>Sony 85mm f/1.8 — people I love</li>
+        <li>Lightroom + custom presets</li>
+      </ul>
+    </div>
+
+  </div>
+</section>

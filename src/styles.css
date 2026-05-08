@@ -18,6 +18,13 @@
   --page-transparent-color: rgba(0, 0, 0, 0.3);
   --color-line-break: rgba(0, 0, 0, 0.1);
   --hover-bg-color: #f0f0f0;
+  --color-text-orange: darkorange;
+  --color-text-teal: teal;
+  --gradient-apple-orange: linear-gradient(360deg, #ff9a6c 30%, #d46836, #de6c3a, #a6603f);
+  --gradient-apple-shadow: linear-gradient(360deg, #a0a0a0 30%, #808080, #606060, #484848);
+  --gradient-apple-teal: linear-gradient(360deg, #2cd1d1 30%, #2AA8A8, #1da3a3, #1bcaca);
+  --journey-bg: #111110;
+  --journey-text: #E8E4DC;
 }
 
 /* greyish black */
@@ -57,10 +64,24 @@
   --page-transparent-color: rgba(0, 0, 0, 0.75);
   --color-line-break: rgba(255, 255, 255, 0.08);
   --hover-bg-color: #1a1a1a;
+  --gradient-apple-orange: linear-gradient(360deg, #ff9a6c 30%, #d46836, #de6c3a, #a6603f);
+  --gradient-apple-shadow: linear-gradient(360deg, #a0a0a0 30%, #808080, #606060, #484848);
+  --gradient-apple-teal: linear-gradient(360deg, #2cd1d1 30%, #2AA8A8, #1da3a3, #1bcaca);
+  --color-text-orange: #ff9a6c;
+  --journey-bg: #F5F5F7;
+  --journey-text: #1D1D1F;
 }
 
 [data-theme="dark"] .cta-icon-github {
   filter: invert(1);
+}
+html {
+  scrollbar-width: none; /* Firefox */
+  scroll-behavior: auto;
+}
+
+html::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
 }
 
 html.no-transition * {
@@ -68,19 +89,19 @@ html.no-transition * {
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    transition: background-color 0.3s ease, color 0.1s ease, border-color 0.5s ease;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease, color 0.1s ease, border-color 0.5s ease;
 }
 
 body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    color: var(--color-text-primary);
-    /* font-size: 17px; */
-    font-size: clamp(11px, 4vw, 17px);
-    -webkit-font-smoothing: antialiased;
-    background-color: var(--bg-color-white)
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: var(--color-text-primary);
+  /* font-size: 17px; */
+  font-size: clamp(11px, 4vw, 17px);
+  -webkit-font-smoothing: antialiased;
+  background-color: var(--bg-color-white)
 }
 
 section, [id] {
@@ -271,5 +292,4 @@ a:hover {
     font-weight: 500;
     font-size: 11px;
   }
-  
 }

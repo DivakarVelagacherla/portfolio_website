@@ -1,0 +1,81 @@
+.connect-section {
+  background-color: var(--bg-color-white);
+  padding: 120px 72px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.connect-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.connect-eyebrow {
+  display: block;
+  font-size: 11px;
+  font-weight: 200;
+  letter-spacing: 0.2em;
+  color: var(--color-text-teal);
+  transform: scaleY(0.85);
+  margin-bottom: 48px;
+}
+
+.connect-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.connect-link {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 32px 0;
+  border-top: 1px solid var(--color-line-break);
+  text-decoration: none;
+  color: var(--color-text-primary);
+  transition: all 0.3s ease;
+  transform: translateX(0);
+}
+
+.connect-link:last-child {
+  border-bottom: 1px solid var(--color-line-break);
+}
+
+.connect-link:hover {
+  transform: translateX(12px);
+  color: var(--color-text-teal);
+}
+
+.connect-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 5vw, 72px);
+  font-weight: 300;
+  line-height: 1;
+  min-width: 280px;
+}
+
+.connect-handle {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--color-text-secondary);
+  transition: color 0.3s ease;
+  align-self: flex-end;
+  padding-bottom: 8px;
+}
+
+.connect-link:hover .connect-handle {
+  color: var(--color-text-teal);
+}
+
+.connect-arrow {
+  margin-left: auto;
+  font-size: 24px;
+  transition: transform 0.3s ease;
+  opacity: 0;
+}
+
+.connect-link:hover .connect-arrow {
+  transform: translateX(8px);
+  opacity: 1;
+}
