@@ -1,0 +1,128 @@
+.journey-section {
+  background-color: var(--journey-bg);
+  padding: 120px 72px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.journey-inner {
+  display: flex;
+  align-items: center;
+  gap: 120px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.journey-photos {
+  position: relative;
+  flex-shrink: 0;
+  width: 480px;
+  height: 600px;
+}
+
+.journey-main-photo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 70%;
+  height: 85%;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.journey-main-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.journey-accent-photo {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 55%;
+  height: 55%;
+  overflow: hidden;
+  border-radius: 4px;
+  border: 3px solid var(--journey-bg);
+}
+
+.journey-accent-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.journey-text {
+  flex: 1;
+}
+
+.journey-eyebrow {
+  display: block;
+  font-size: 11px;
+  font-weight: 200;
+  letter-spacing: 0.2em;
+  color: var(--color-text-orange);
+  transform: scaleY(0.85);
+  margin-bottom: 24px;
+}
+
+.journey-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 5vw, 72px);
+  font-weight: 300;
+  color: var(--journey-text);
+  line-height: 1.1;
+  margin-bottom: 48px;
+}
+
+.journey-highlight {
+  color: var(--color-text-orange);
+  font-style: italic;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.journey-body {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--journey-text);
+  opacity: 0.75;
+  line-height: 1.9;
+  margin-bottom: 28px;
+  max-width: 600px;
+}
+
+.journey-divider {
+  width: 40px;
+  height: 2px;
+  background: var(--color-text-orange);
+  margin: 40px 0;
+}
+
+.journey-gear {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.journey-gear li {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--journey-text);
+  opacity: 0.7;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.journey-gear li::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-text-orange);
+  flex-shrink: 0;
+}

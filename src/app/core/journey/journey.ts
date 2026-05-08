@@ -1,0 +1,28 @@
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { PhotoService } from '../../services/photo-service';
+import { Photo } from '../../models/photo';
+
+@Component({
+  selector: 'app-journey-component',
+  imports: [CommonModule],
+  templateUrl: './journey.html',
+  styleUrl: './journey.css',
+})
+export class JourneyComponent implements OnInit {
+  mainPhoto: Photo | null = null;
+  accentPhoto: Photo | null = null;
+
+  constructor(private photoService: PhotoService) {}
+
+  ngOnInit() {
+    this.photoService.fetchPhotos().subscribe((data: any) => {
+      this.mainPhoto = data.journey[1];
+      this.accentPhoto = data.journey[0];
+    });
+  }
+
+  getImageUrl(key: string, width: number): string {
+    return this.photoService.getImageUrl(key, width);
+  }
+}

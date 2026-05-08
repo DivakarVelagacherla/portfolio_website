@@ -23,6 +23,8 @@
   --gradient-apple-orange: linear-gradient(360deg, #ff9a6c 30%, #d46836, #de6c3a, #a6603f);
   --gradient-apple-shadow: linear-gradient(360deg, #a0a0a0 30%, #808080, #606060, #484848);
   --gradient-apple-teal: linear-gradient(360deg, #2cd1d1 30%, #2AA8A8, #1da3a3, #1bcaca);
+  --journey-bg: #111110;
+  --journey-text: #E8E4DC;
 }
 
 /* greyish black */
@@ -66,6 +68,8 @@
   --gradient-apple-shadow: linear-gradient(360deg, #a0a0a0 30%, #808080, #606060, #484848);
   --gradient-apple-teal: linear-gradient(360deg, #2cd1d1 30%, #2AA8A8, #1da3a3, #1bcaca);
   --color-text-orange: #ff9a6c;
+  --journey-bg: #F5F5F7;
+  --journey-text: #1D1D1F;
 }
 
 [data-theme="dark"] .cta-icon-github {

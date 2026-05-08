@@ -2,10 +2,11 @@ import { Component, inject } from '@angular/core';
 import { ThemeService } from '../../services/theme.service';
 import { PhotographyHeroComponent } from '../../core/photography-hero-component/photography-hero-component';
 import { GalleryComponent } from '../../core/gallery-component/gallery-component';
+import { JourneyComponent } from '../../core/journey/journey';
 
 @Component({
   selector: 'app-photography',
-  imports: [PhotographyHeroComponent, GalleryComponent],
+  imports: [PhotographyHeroComponent, GalleryComponent, JourneyComponent],
   templateUrl: './photography.html',
   styleUrl: './photography.css',
 })
