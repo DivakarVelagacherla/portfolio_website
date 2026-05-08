@@ -96,3 +96,28 @@
   color: var(--ink-muted);
   margin: 0;
 }
+
+@media (max-width: 768px) {
+  .photo-footer {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 40px 24px;
+  }
+
+  .footer-right {
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-nav {
+    flex-wrap: nowrap;
+    gap: 12px;
+    overflow-x: auto;
+    justify-content: center;
+  }
+
+  .footer-link {
+    font-size: 11px;
+    white-space: nowrap;
+  }
+}

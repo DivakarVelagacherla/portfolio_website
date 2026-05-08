@@ -79,3 +79,24 @@
   transform: translateX(8px);
   opacity: 1;
 }
+
+@media (max-width: 768px) {
+  .connect-section {
+    padding: 60px 24px;
+  }
+
+  .connect-link {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .connect-label {
+    font-size: clamp(28px, 8vw, 48px);
+    min-width: unset;
+  }
+
+  .connect-handle {
+    font-size: 12px;
+    align-self: flex-end;
+  }
+}

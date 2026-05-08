@@ -266,3 +266,38 @@
   padding: 6px 16px;
   border-radius: 20px;
 }
+
+@media (max-width: 768px) {
+  .gallery-eyebrow,
+  .gallery-title {
+    margin-left: 24px;
+  }
+
+  .gallery-title {
+    font-size: 28px;
+  }
+
+  .gallery-tracker {
+    height: 300px;
+    left: calc(50vw - 160px);
+  }
+
+  .row-2 .gallery-tracker {
+    height: 160px;
+    left: calc(50vw - 120px);
+  }
+
+  .row-1 .gallery-card {
+    width: 320px;
+    height: 300px;
+  }
+
+  .row-2 .gallery-card {
+    width: 240px;
+    height: 160px;
+  }
+
+  .gallery-controls {
+    padding: 16px 24px;
+  }
+}

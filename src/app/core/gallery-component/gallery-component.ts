@@ -19,8 +19,8 @@ export class GalleryComponent implements OnInit, OnDestroy {
   selectedIndex: number = 0;
   allCards: GalleryCard[] = [];
 
-  readonly row1CardWidth = 1250;
-  readonly row2CardWidth = 470;
+  row1CardWidth: number = window.innerWidth <= 768 ? 320 : 1250;
+  row2CardWidth: number = window.innerWidth <= 768 ? 240 : 470;
   readonly gap = 24;
 
   constructor(
