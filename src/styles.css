@@ -75,6 +75,14 @@
 [data-theme="dark"] .cta-icon-github {
   filter: invert(1);
 }
+html {
+  scrollbar-width: none; /* Firefox */
+  scroll-behavior: auto;
+}
+
+html::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
 
 html.no-transition * {
   transition: none !important;

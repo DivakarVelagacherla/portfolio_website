@@ -4,10 +4,17 @@ import { PhotographyHeroComponent } from '../../core/photography-hero-component/
 import { GalleryComponent } from '../../core/gallery-component/gallery-component';
 import { JourneyComponent } from '../../core/journey/journey';
 import { ConnectComponent } from '../../core/connect/connect';
+import { PhotographyFooterComponent } from '../../core/photography-footer/photography-footer';
 
 @Component({
   selector: 'app-photography',
-  imports: [PhotographyHeroComponent, GalleryComponent, JourneyComponent, ConnectComponent],
+  imports: [
+    PhotographyHeroComponent,
+    GalleryComponent,
+    JourneyComponent,
+    ConnectComponent,
+    PhotographyFooterComponent,
+  ],
   templateUrl: './photography.html',
   styleUrl: './photography.css',
 })
