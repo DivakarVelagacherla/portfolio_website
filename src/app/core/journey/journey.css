@@ -1,8 +1,10 @@
 .journey-section {
   background-color: var(--journey-bg);
-  padding: 120px 72px;
   width: 100%;
+  min-height: 100vh;
   box-sizing: border-box;
+  display: flex;
+  align-items: center;
 }
 
 .journey-inner {

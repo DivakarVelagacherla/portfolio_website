@@ -3,10 +3,11 @@ import { ThemeService } from '../../services/theme.service';
 import { PhotographyHeroComponent } from '../../core/photography-hero-component/photography-hero-component';
 import { GalleryComponent } from '../../core/gallery-component/gallery-component';
 import { JourneyComponent } from '../../core/journey/journey';
+import { ConnectComponent } from '../../core/connect/connect';
 
 @Component({
   selector: 'app-photography',
-  imports: [PhotographyHeroComponent, GalleryComponent, JourneyComponent],
+  imports: [PhotographyHeroComponent, GalleryComponent, JourneyComponent, ConnectComponent],
   templateUrl: './photography.html',
   styleUrl: './photography.css',
 })

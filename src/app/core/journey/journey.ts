@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PhotoService } from '../../services/photo-service';
 import { Photo } from '../../models/photo';
@@ -13,12 +13,16 @@ export class JourneyComponent implements OnInit {
   mainPhoto: Photo | null = null;
   accentPhoto: Photo | null = null;
 
-  constructor(private photoService: PhotoService) {}
+  constructor(
+    private photoService: PhotoService,
+    private cdr: ChangeDetectorRef,
+  ) {}
 
   ngOnInit() {
     this.photoService.fetchPhotos().subscribe((data: any) => {
       this.mainPhoto = data.journey[1];
       this.accentPhoto = data.journey[0];
+      this.cdr.detectChanges();
     });
   }
 

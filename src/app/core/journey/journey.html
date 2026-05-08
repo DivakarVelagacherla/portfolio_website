@@ -3,10 +3,10 @@
 
     <div class="journey-photos">
       <div class="journey-main-photo" *ngIf="mainPhoto">
-        <img [src]="getImageUrl(mainPhoto.key, 800)" [alt]="mainPhoto.alt">
+        <img [src]="getImageUrl(mainPhoto.key, 400)" [alt]="mainPhoto.alt">
       </div>
       <div class="journey-accent-photo" *ngIf="accentPhoto">
-        <img [src]="getImageUrl(accentPhoto.key, 600)" [alt]="accentPhoto.alt">
+        <img [src]="getImageUrl(accentPhoto.key, 200)" [alt]="accentPhoto.alt">
       </div>
     </div>
 
@@ -36,12 +36,12 @@
 
       <div class="journey-divider"></div>
 
-      <!-- <ul class="journey-gear">
+      <ul class="journey-gear">
         <li>Sony A7 IV — primary body</li>
         <li>Sony 35mm f/1.8 — everyday</li>
         <li>Sony 85mm f/1.8 — people I love</li>
         <li>Lightroom + custom presets</li>
-      </ul> -->
+      </ul>
     </div>
 
   </div>
