@@ -1,9 +1,11 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { ScrollAnimateDirective } from '../../shared/directives/scroll-animate';
 
 @Component({
   selector: 'app-photography-footer',
-  imports: [RouterLink],
+  imports: [RouterLink, CommonModule, ScrollAnimateDirective],
   templateUrl: './photography-footer.html',
   styleUrl: './photography-footer.css',
 })

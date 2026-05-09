@@ -2,10 +2,11 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PhotoService } from '../../services/photo-service';
 import { Photo } from '../../models/photo';
+import { ScrollAnimateDirective } from '../../shared/directives/scroll-animate';
 
 @Component({
   selector: 'app-journey-component',
-  imports: [CommonModule],
+  imports: [CommonModule, ScrollAnimateDirective],
   templateUrl: './journey.html',
   styleUrl: './journey.css',
 })
