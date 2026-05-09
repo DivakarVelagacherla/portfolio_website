@@ -37,6 +37,7 @@ export class GalleryComponent implements OnInit, OnDestroy {
     this.audio.play().catch(() => {
       this.startOnInteraction();
     });
+    document.addEventListener('visibilitychange', this.handleVisibility);
 
     this.photoService.fetchPhotos().subscribe((data: any) => {
       const row1Photos = this.shuffle(data.gallery.filter((p: Photo) => p.row === 1));
@@ -66,6 +67,14 @@ export class GalleryComponent implements OnInit, OnDestroy {
       this.startInterval();
     });
   }
+
+  handleVisibility = () => {
+    if (document.hidden) {
+      this.audio?.pause();
+    } else if (this.isPlaying) {
+      this.audio?.play().catch(() => {});
+    }
+  };
 
   shuffle(array: any[]): any[] {
     return array
@@ -121,7 +130,7 @@ export class GalleryComponent implements OnInit, OnDestroy {
   }
 
   fadeIn() {
-    const targetVolume = 0.4;
+    const targetVolume = 0.075;
     const duration = 2000; // 2 seconds fade in
     const steps = 30;
     const stepTime = duration / steps;
@@ -159,6 +168,7 @@ export class GalleryComponent implements OnInit, OnDestroy {
     if (this.interactionHandler) {
       document.removeEventListener('click', this.interactionHandler);
     }
+    document.removeEventListener('visibilitychange', this.handleVisibility);
   }
 
   getImageUrl(key: string, width: number): string {
