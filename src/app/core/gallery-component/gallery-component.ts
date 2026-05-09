@@ -15,6 +15,8 @@ export class GalleryComponent implements OnInit, OnDestroy {
   row2Cards: GalleryCard[] = [];
   isPlaying: boolean = true;
   private intervalId: any;
+  private audio: HTMLAudioElement | null = null;
+  private interactionHandler: (() => void) | null = null;
   selectedCard: GalleryCard | null = null;
   selectedIndex: number = 0;
   allCards: GalleryCard[] = [];
@@ -29,6 +31,13 @@ export class GalleryComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
+    this.audio = new Audio('https://api.divakarvelagacherla.com/audio/ambient.mp3');
+    this.audio.loop = true;
+    this.audio.volume = 0.4;
+    this.audio.play().catch(() => {
+      this.startOnInteraction();
+    });
+
     this.photoService.fetchPhotos().subscribe((data: any) => {
       const row1Photos = data.gallery.filter((p: Photo) => p.row === 1);
       const row2Photos = data.gallery.filter((p: Photo) => p.row === 2);
@@ -56,6 +65,17 @@ export class GalleryComponent implements OnInit, OnDestroy {
       this.next();
       this.startInterval();
     });
+  }
+
+  startOnInteraction() {
+    this.interactionHandler = () => {
+      if (this.isPlaying && this.audio?.paused) {
+        this.audio.volume = 0;
+        this.audio?.play().catch(() => {});
+        this.fadeIn();
+      }
+    };
+    document.addEventListener('click', this.interactionHandler);
   }
 
   getTransform(progress: number, cardWidth: number): string {
@@ -93,18 +113,45 @@ export class GalleryComponent implements OnInit, OnDestroy {
     this.intervalId = setInterval(() => this.next(), 4200);
   }
 
+  fadeIn() {
+    const targetVolume = 0.4;
+    const duration = 3000; // 3 seconds fade in
+    const steps = 30;
+    const stepTime = duration / steps;
+    const stepVolume = targetVolume / steps;
+
+    const fade = setInterval(() => {
+      if (this.audio && this.audio.volume < targetVolume) {
+        this.audio.volume = Math.min(this.audio.volume + stepVolume, targetVolume);
+      } else {
+        clearInterval(fade);
+      }
+    }, stepTime);
+  }
+
   pausePlay() {
     if (this.isPlaying) {
       clearInterval(this.intervalId);
+      this.audio?.pause();
       this.isPlaying = false;
     } else {
       this.startInterval();
+      if (this.audio) {
+        this.audio.volume = 0;
+        this.audio.play().catch(() => {});
+        this.fadeIn();
+      }
       this.isPlaying = true;
     }
   }
 
   ngOnDestroy() {
     clearInterval(this.intervalId);
+    this.audio?.pause();
+    this.audio = null;
+    if (this.interactionHandler) {
+      document.removeEventListener('click', this.interactionHandler);
+    }
   }
 
   getImageUrl(key: string, width: number): string {
