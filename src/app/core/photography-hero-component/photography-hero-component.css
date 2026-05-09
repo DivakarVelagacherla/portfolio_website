@@ -1,55 +1,74 @@
 .hero-container {
-    min-height: 60vh;
-    background-color: var(--bg-color-white);
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  min-height: 60vh;
+  background-color: var(--bg-color-white);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero-title {
-    padding: 12px 12px;
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(48px, 6vw, 96px);
-    font-weight: 400;
+  padding: 12px 12px;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(48px, 6vw, 96px);
+  font-weight: 400;
 }
 
 .title-light {
-    background: var(--gradient-apple-orange);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  background: var(--gradient-apple-orange);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0;
+  animation: snap 0s ease forwards;
+  animation-delay: 0.5s;
 }
 
 .title-shadow {
-    background: var(--gradient-apple-shadow);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  background: var(--gradient-apple-shadow);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0;
+  animation: snap 0s ease forwards;
+  animation-delay: 1.2s;
 }
 
 .title-story {
-    background: var(--gradient-apple-teal);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  background: var(--gradient-apple-teal);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0;
+  animation: snap 0s ease forwards;
+  animation-delay: 1.9s;
+}
+
+@keyframes snap {
+  to { opacity: 1; }
 }
 
 .hero-sub-title {
-    font-size: 20px;
-    font-weight: 400;
-    padding-bottom: 6px;
-    color: var(--text-color-secondary);
+  font-size: 20px;
+  font-weight: 400;
+  padding-bottom: 6px;
+  color: var(--text-color-secondary);
+  opacity: 0;
+  animation: fadeIn 1.5s ease forwards;
+  animation-delay: 2.8s;
 }
 
 .hero-caption {
-    margin-top: 24px;
-    display: inline-block;
-    max-width: 720px;
-    font-size: 16px;
-    line-height: 1.8;
-    font-weight: 200;
-    letter-spacing: 0.1em;
-    font-style: italic;
-    color: var(--text-color-secondary);
+  margin-top: 24px;
+  display: inline-block;
+  max-width: 720px;
+  font-size: 16px;
+  line-height: 1.8;
+  font-weight: 200;
+  letter-spacing: 0.1em;
+  font-style: italic;
+  color: var(--text-color-secondary);
+  opacity: 0;
+  animation: fadeIn 1.5s ease forwards;
+  animation-delay: 3.2s;
 }
 
 @media (max-width: 768px) {
