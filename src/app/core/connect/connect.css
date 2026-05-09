@@ -3,11 +3,17 @@
   padding: 120px 72px;
   width: 100%;
   box-sizing: border-box;
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
 }
 
 .connect-inner {
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 100%;
+}
+
+.connect-caption {
+  margin-bottom: 64px;
 }
 
 .connect-eyebrow {
@@ -17,7 +23,22 @@
   letter-spacing: 0.2em;
   color: var(--color-text-teal);
   transform: scaleY(0.85);
-  margin-bottom: 48px;
+  margin-bottom: 24px;
+}
+
+.connect-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 5vw, 72px);
+  font-weight: 300;
+  color: var(--color-text-primary);
+  line-height: 1.1;
+  max-width: 600px;
+}
+
+.connect-highlight {
+  color: var(--color-text-teal);
+  font-style: italic;
+  font-family: 'Cormorant Garamond', serif;
 }
 
 .connect-links {
@@ -45,6 +66,19 @@
 .connect-link:hover {
   transform: translateX(12px);
   color: var(--color-text-teal);
+}
+
+.connect-logo {
+    font-size: clamp(32px, 4vw, 64px);
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.connect-link:hover .connect-logo {
+  transform: scale(1.1);
 }
 
 .connect-label {
@@ -83,6 +117,11 @@
 @media (max-width: 768px) {
   .connect-section {
     padding: 60px 24px;
+    min-height: auto;
+  }
+
+  .connect-title {
+    font-size: clamp(28px, 7vw, 48px);
   }
 
   .connect-link {
