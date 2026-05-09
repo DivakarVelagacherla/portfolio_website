@@ -39,8 +39,8 @@ export class GalleryComponent implements OnInit, OnDestroy {
     });
 
     this.photoService.fetchPhotos().subscribe((data: any) => {
-      const row1Photos = data.gallery.filter((p: Photo) => p.row === 1);
-      const row2Photos = data.gallery.filter((p: Photo) => p.row === 2);
+      const row1Photos = this.shuffle(data.gallery.filter((p: Photo) => p.row === 1));
+      const row2Photos = this.shuffle(data.gallery.filter((p: Photo) => p.row === 2));
 
       this.row1Cards = row1Photos.map((photo: Photo, index: number) => ({
         photo,
@@ -65,6 +65,13 @@ export class GalleryComponent implements OnInit, OnDestroy {
       this.next();
       this.startInterval();
     });
+  }
+
+  shuffle(array: any[]): any[] {
+    return array
+      .map((item) => ({ item, sort: Math.random() }))
+      .sort((a, b) => a.sort - b.sort)
+      .map(({ item }) => item);
   }
 
   startOnInteraction() {
