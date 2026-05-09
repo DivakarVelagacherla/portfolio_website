@@ -5,6 +5,7 @@
   box-sizing: border-box;
   display: flex;
   align-items: center;
+  padding: 80px 72px;
 }
 
 .journey-inner {
@@ -13,6 +14,7 @@
   gap: 120px;
   max-width: 1200px;
   margin: 0 auto;
+  width: 100%;
 }
 
 .journey-photos {
@@ -129,9 +131,11 @@
   flex-shrink: 0;
 }
 
+/* Mobile */
 @media (max-width: 768px) {
   .journey-section {
     padding: 60px 24px;
+    min-height: auto;
   }
 
   .journey-inner {
@@ -161,5 +165,73 @@
   .journey-body {
     font-size: 14px;
     max-width: 100%;
+  }
+}
+
+/* Mobile landscape */
+@media (max-width: 768px) and (orientation: landscape) {
+  .journey-section {
+    padding: 40px 24px;
+    min-height: auto;
+  }
+
+  .journey-photos {
+    width: 300px;
+    height: 400px;
+    align-self: center;
+  }
+}
+
+/* iPad portrait */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+  .journey-section {
+    padding: 80px 48px;
+  }
+
+  .journey-inner {
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  .journey-photos {
+    width: 60%;
+    height: 380px;
+    margin: 0 auto;
+  }
+
+  .journey-title {
+    font-size: clamp(28px, 4vw, 42px);
+  }
+
+  .journey-body {
+    font-size: 14px;
+    max-width: 100%;
+  }
+}
+
+/* iPad landscape */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .journey-section {
+    padding: 80px 64px;
+  }
+
+  .journey-inner {
+    flex-direction: row;
+    gap: 48px;
+    max-width: 900px;
+  }
+
+  .journey-photos {
+    width: 300px;
+    height: 380px;
+    flex-shrink: 0;
+  }
+
+  .journey-title {
+    font-size: clamp(28px, 4vw, 42px);
+  }
+
+  .journey-body {
+    font-size: 14px;
   }
 }
