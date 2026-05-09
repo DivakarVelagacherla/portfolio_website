@@ -12,7 +12,6 @@ export class ScrollAnimateDirective implements OnInit, OnDestroy {
   constructor(private el: ElementRef) {}
 
   ngOnInit() {
-    // Set initial state
     this.el.nativeElement.style.opacity = '0';
     this.el.nativeElement.style.transition = 'none';
 
@@ -21,7 +20,8 @@ export class ScrollAnimateDirective implements OnInit, OnDestroy {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             this.animate();
-            this.observer?.unobserve(this.el.nativeElement);
+          } else {
+            this.reset();
           }
         });
       },
@@ -46,14 +46,31 @@ export class ScrollAnimateDirective implements OnInit, OnDestroy {
         break;
     }
 
-    // Force reflow
     el.getBoundingClientRect();
 
-    // Apply transition and animate to final position
     el.style.transition =
       'opacity 1.4s cubic-bezier(0.16, 1, 0.3, 1), transform 1.4s cubic-bezier(0.16, 1, 0.3, 1)';
     el.style.opacity = '1';
     el.style.transform = 'translate(0, 0)';
+  }
+
+  reset() {
+    const el = this.el.nativeElement;
+    el.style.transition =
+      'opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+    el.style.opacity = '0';
+
+    switch (this.animationType) {
+      case 'left':
+        el.style.transform = 'translateX(-40px)';
+        break;
+      case 'right':
+        el.style.transform = 'translateX(40px)';
+        break;
+      default:
+        el.style.transform = 'translateY(60px)';
+        break;
+    }
   }
 
   ngOnDestroy() {

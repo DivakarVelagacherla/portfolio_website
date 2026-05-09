@@ -1,7 +1,7 @@
 <section class="journey-section">
-  <div class="journey-inner">
+  <div class="journey-inner" appScrollAnimate>
 
-    <div class="journey-photos" appScrollAnimate>
+    <div class="journey-photos">
       <div class="journey-main-photo" *ngIf="mainPhoto">
         <img [src]="getImageUrl(mainPhoto.key, 400)" [alt]="mainPhoto.alt">
       </div>
@@ -12,31 +12,25 @@
 
     <div class="journey-text">
       <span class="journey-eyebrow" appScrollAnimate>THE JOURNEY</span>
-
       <h2 class="journey-title" appScrollAnimate>
         It started with a <em class="journey-highlight">feeling</em>, not a plan.
       </h2>
-
       <p class="journey-body" appScrollAnimate>
         College. A cheap camera. No agenda. I just wanted to freeze things that
         made me feel something. Somewhere along the way, I realised I had a natural eye.
       </p>
-
       <p class="journey-body" appScrollAnimate>
         I shoot what catches my eye — the light hitting a hood just right, 
         a tree stubbornly blooming in a parking lot, 
         a quiet moment nobody else noticed. 
         Photography is how I pay attention.
       </p>
-
       <p class="journey-body" appScrollAnimate>
         My favourite shots aren't the dramatic ones. They're the ones nobody saw
         coming — someone laughing too hard, a flower catching morning light, a
         perfect moment nobody planned.
       </p>
-
       <div class="journey-divider" appScrollAnimate></div>
-
       <ul class="journey-gear" appScrollAnimate>
         <li>Iphone 15 Pro — primary Camera</li>
         <li>Insta360 Go3S — Secondary Camera</li>
