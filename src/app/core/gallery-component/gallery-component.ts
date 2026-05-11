@@ -33,7 +33,7 @@ export class GalleryComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.audio = new Audio('https://api.divakarvelagacherla.com/audio/ambient.mp3');
     this.audio.loop = true;
-    this.audio.volume = 0.075;
+    this.audio.volume = 0.035;
     this.audio.play().catch(() => {
       this.startOnInteraction();
     });
@@ -130,7 +130,7 @@ export class GalleryComponent implements OnInit, OnDestroy {
   }
 
   fadeIn() {
-    const targetVolume = 0.075;
+    const targetVolume = 0.035;
     const duration = 2000; // 2 seconds fade in
     const steps = 30;
     const stepTime = duration / steps;
