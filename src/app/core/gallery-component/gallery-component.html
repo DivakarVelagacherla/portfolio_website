@@ -13,6 +13,11 @@
              [style.transition]="card.noTransition ? 'none' : 'transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1)'"
              (click)="openLightbox(card)">
           <img [src]="getImageUrl(card.photo.key, 1200)" [alt]="card.photo.alt">
+          <div class="gallery-card-overlay" *ngIf="card.photo.location || card.photo.year">
+            <span *ngIf="card.photo.location">{{ card.photo.location }}</span>
+            <span *ngIf="card.photo.location && card.photo.year"> · </span>
+            <span *ngIf="card.photo.year">{{ card.photo.year }}</span>
+          </div>
         </div>
       </div>
     </div>
@@ -25,6 +30,11 @@
              [style.transition]="card.noTransition ? 'none' : 'transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1)'"
              (click)="openLightbox(card)">
           <img [src]="getImageUrl(card.photo.key, 400)" [alt]="card.photo.alt">
+          <div class="gallery-card-overlay" *ngIf="card.photo.location || card.photo.year">
+            <span *ngIf="card.photo.location">{{ card.photo.location }}</span>
+            <span *ngIf="card.photo.location && card.photo.year"> · </span>
+            <span *ngIf="card.photo.year">{{ card.photo.year }}</span>
+          </div>
         </div>
       </div>
     </div>
