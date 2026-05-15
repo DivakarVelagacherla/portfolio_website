@@ -34,11 +34,15 @@
   <div class="gallery-controls">
     <div class="controls-left"></div>
     <div class="dots">
-      <span class="dot"
-            *ngFor="let card of getVisibleDots(); let i = index"
-            [class.active]="card.progress === 0"
-            (click)="goToIndex(getActiveDotIndex() + i - 3)">
-      </span>
+      <div class="dots-track"
+           [style.transform]="getDotsTrackTransform()"
+           [style.transition]="dotsTransitionEnabled ? 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)' : 'none'">
+        <span class="dot"
+              *ngFor="let card of row1Cards; let i = index"
+              [class.active]="card.progress === 0"
+              (click)="goToIndex(i)">
+        </span>
+      </div>
     </div>
     <div class="controls-right">
       <button class="pause-btn" (click)="pausePlay()">

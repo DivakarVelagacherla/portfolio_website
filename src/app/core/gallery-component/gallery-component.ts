@@ -14,6 +14,8 @@ export class GalleryComponent implements OnInit, OnDestroy {
   row1Cards: GalleryCard[] = [];
   row2Cards: GalleryCard[] = [];
   isPlaying: boolean = true;
+  currentStep: number = 0;
+  dotsTransitionEnabled: boolean = true;
   private intervalId: any;
   private audio: HTMLAudioElement | null = null;
   private interactionHandler: (() => void) | null = null;
@@ -122,7 +124,21 @@ export class GalleryComponent implements OnInit, OnDestroy {
       card2.progress = max2 + 1;
     }
 
-    this.cdr.detectChanges();
+    this.currentStep++;
+    const N = this.row1Cards.length;
+    const isWrap = N > 0 && this.currentStep % N === 0;
+
+    if (isWrap) {
+      this.dotsTransitionEnabled = false;
+      this.cdr.detectChanges();
+      setTimeout(() => {
+        this.dotsTransitionEnabled = true;
+        this.cdr.detectChanges();
+      }, 20);
+    } else {
+      this.dotsTransitionEnabled = true;
+      this.cdr.detectChanges();
+    }
   }
 
   startInterval() {
@@ -179,11 +195,11 @@ export class GalleryComponent implements OnInit, OnDestroy {
     return this.row1Cards.findIndex((c) => c.progress === 0);
   }
 
-  getVisibleDots(): GalleryCard[] {
-    const activeIndex = this.getActiveDotIndex();
-    const start = Math.max(0, activeIndex - 3);
-    const end = Math.min(this.row1Cards.length, activeIndex + 4);
-    return this.row1Cards.slice(start, end);
+  getDotsTrackTransform(): string {
+    const N = this.row1Cards.length;
+    if (N === 0) return 'translateX(0)';
+    const activeIndex = this.currentStep % N;
+    return `translateX(${-(activeIndex - 4) * 12}px)`;
   }
 
   goToIndex(targetIndex: number) {
