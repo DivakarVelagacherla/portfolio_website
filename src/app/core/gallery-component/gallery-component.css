@@ -124,10 +124,19 @@
 }
 
 .dots {
+  overflow: hidden;
+  width: 116px;
+  display: flex;
+  align-items: center;
+  -webkit-mask: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+  mask: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+}
+
+.dots-track {
   display: flex;
   align-items: center;
   gap: 6px;
-  justify-content: center;
+  flex-shrink: 0;
 }
 
 .dot {
