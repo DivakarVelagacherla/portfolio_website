@@ -83,6 +83,30 @@
   transform: scale(1.02);
 }
 
+.gallery-card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.85));
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 16px 32px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 13px;
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.gallery-card:hover .gallery-card-overlay {
+  opacity: 1;
+}
+
 /* two viewports */
 .row-1 .gallery-card {
   width: 1250px;

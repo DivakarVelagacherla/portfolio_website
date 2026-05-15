@@ -31,7 +31,7 @@
   width: 70%;
   height: 85%;
   overflow: hidden;
-  border-radius: 4px;
+  border-radius: 8px;
 }
 
 .journey-main-photo img {
@@ -47,7 +47,7 @@
   width: 55%;
   height: 55%;
   overflow: hidden;
-  border-radius: 4px;
+  border-radius: 8px;
   border: 3px solid var(--journey-bg);
 }
 
