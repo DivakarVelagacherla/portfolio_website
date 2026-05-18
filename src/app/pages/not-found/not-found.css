@@ -1,0 +1,55 @@
+.not-found-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100dvh;
+  text-align: center;
+  padding: 0 24px;
+  gap: 16px;
+}
+
+.name {
+  font-size: clamp(10px, 2vw, 13px);
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  color: var(--color-text-secondary);
+  opacity: 0;
+  animation: slideUp 0.8s ease forwards;
+}
+
+.code {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(120px, 20vw, 200px);
+  font-weight: 300;
+  line-height: 1;
+  color: var(--color-text-primary);
+  opacity: 0;
+  animation: slideUp 0.8s ease 0.15s forwards;
+}
+
+.message {
+  font-size: clamp(14px, 2.5vw, 18px);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--color-text-secondary);
+  opacity: 0;
+  animation: slideUp 0.8s ease 0.3s forwards;
+}
+
+.home-link {
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--accent-color);
+  text-decoration: none;
+  opacity: 0;
+  animation: slideUp 0.8s ease 0.45s forwards;
+  transition: opacity 0.2s ease;
+}
+
+.home-link:hover {
+  opacity: 0.7;
+  color: var(--accent-color);
+}
