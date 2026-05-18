@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnDestroy, inject } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
 import { ThemeService } from '../../services/theme.service';
 import { PhotographyHeroComponent } from '../../core/photography-hero-component/photography-hero-component';
@@ -19,7 +19,7 @@ import { PhotographyFooterComponent } from '../../core/photography-footer/photog
   templateUrl: './photography.html',
   styleUrl: './photography.css',
 })
-export class Photography {
+export class Photography implements OnDestroy {
   private title = inject(Title);
   private meta = inject(Meta);
   private theme = inject(ThemeService);

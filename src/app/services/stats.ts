@@ -2,6 +2,7 @@ import { Injectable, signal } from '@angular/core';
 import { Stats } from '../models/stats.model';
 import { ExperienceService } from './experience';
 import { HttpClient } from '@angular/common/http';
+import { take } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -38,7 +39,7 @@ export class StatsService {
   }
 
   private loadLiveStats() {
-    this.fetchLiveStats().subscribe((data) => {
+    this.fetchLiveStats().pipe(take(1)).subscribe((data) => {
       this.stats.update((current) => ({
         ...current,
         loc: data.total_lines_code,
@@ -64,12 +65,10 @@ export class StatsService {
         const end = exp.endDate ? exp.endDate : new Date();
         const m =
           (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth());
-        console.log(exp.companyName, m);
         return m;
       })
       .reduce((sum, months) => sum + months, 0);
 
-    console.log('Total months:', months);
     return Math.floor(months / 12);
   }
 }

@@ -1,4 +1,5 @@
-import { Component, OnInit, OnDestroy, ChangeDetectorRef, inject } from '@angular/core';
+import { Component, OnInit, OnDestroy, ChangeDetectorRef, DestroyRef, inject } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { CommonModule, DOCUMENT } from '@angular/common';
 import { Meta, Title } from '@angular/platform-browser';
@@ -18,6 +19,7 @@ export class BlogPostPage implements OnInit, OnDestroy {
   isLoading = true;
   isError = false;
   private document = inject(DOCUMENT);
+  private destroyRef = inject(DestroyRef);
   private ldScript: HTMLScriptElement | null = null;
 
   constructor(
@@ -39,7 +41,7 @@ export class BlogPostPage implements OnInit, OnDestroy {
 
     this.blogPostService
       .fetchPost(slug)
-      .pipe(catchError(() => of(null)))
+      .pipe(catchError(() => of(null)), takeUntilDestroyed(this.destroyRef))
       .subscribe((post) => {
         this.isLoading = false;
         if (!post) {

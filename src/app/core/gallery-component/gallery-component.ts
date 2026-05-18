@@ -1,4 +1,5 @@
-import { Component, OnInit, OnDestroy, ChangeDetectorRef, HostListener } from '@angular/core';
+import { Component, OnInit, OnDestroy, ChangeDetectorRef, HostListener, DestroyRef, inject } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { CommonModule } from '@angular/common';
 import { PhotoService } from '../../services/photo-service';
 import { Photo } from '../../models/photo';
@@ -19,6 +20,7 @@ export class GalleryComponent implements OnInit, OnDestroy {
   private intervalId: any;
   private audio: HTMLAudioElement | null = null;
   private interactionHandler: (() => void) | null = null;
+  private destroyRef = inject(DestroyRef);
   selectedCard: GalleryCard | null = null;
   selectedIndex: number = 0;
   allCards: GalleryCard[] = [];
@@ -41,7 +43,7 @@ export class GalleryComponent implements OnInit, OnDestroy {
     });
     document.addEventListener('visibilitychange', this.handleVisibility);
 
-    this.photoService.fetchPhotos().subscribe((data: any) => {
+    this.photoService.fetchPhotos().pipe(takeUntilDestroyed(this.destroyRef)).subscribe((data: any) => {
       const row1Photos = this.shuffle(data.gallery.filter((p: Photo) => p.row === 1));
       const row2Photos = this.shuffle(data.gallery.filter((p: Photo) => p.row === 2));
 
