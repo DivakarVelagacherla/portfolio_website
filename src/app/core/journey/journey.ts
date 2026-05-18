@@ -1,4 +1,5 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, DestroyRef, inject } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { CommonModule } from '@angular/common';
 import { PhotoService } from '../../services/photo-service';
 import { Photo } from '../../models/photo';
@@ -13,6 +14,7 @@ import { ScrollAnimateDirective } from '../../shared/directives/scroll-animate';
 export class JourneyComponent implements OnInit {
   mainPhoto: Photo | null = null;
   accentPhoto: Photo | null = null;
+  private destroyRef = inject(DestroyRef);
 
   constructor(
     private photoService: PhotoService,
@@ -20,7 +22,7 @@ export class JourneyComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.photoService.fetchPhotos().subscribe((data: any) => {
+    this.photoService.fetchPhotos().pipe(takeUntilDestroyed(this.destroyRef)).subscribe((data: any) => {
       this.mainPhoto = data.journey[1];
       this.accentPhoto = data.journey[0];
       this.cdr.detectChanges();

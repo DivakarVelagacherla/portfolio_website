@@ -25,4 +25,9 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./pages/blog-post/blog-post.page').then((c) => c.BlogPostPage),
   },
+  {
+    path: '**',
+    loadComponent: () =>
+      import('./pages/not-found/not-found').then((c) => c.NotFoundComponent),
+  },
 ];

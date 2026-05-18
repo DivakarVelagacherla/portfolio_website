@@ -55,7 +55,6 @@ export class BlogPostsService {
     return this.fetchPostContent(slug).pipe(
       map((markdown) => {
         const { metadata, content } = this.parseFrontmatter(markdown);
-        console.log('metadata', metadata);
         return {
           title: metadata['title'],
           slug: metadata['slug'],

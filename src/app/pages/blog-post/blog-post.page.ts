@@ -1,6 +1,7 @@
-import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, ChangeDetectorRef, DestroyRef, inject } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DOCUMENT } from '@angular/common';
 import { Meta, Title } from '@angular/platform-browser';
 import { BlogPostsService } from '../../services/blog-post';
 import { BlogPost } from '../../models/blog-post.model';
@@ -17,6 +18,9 @@ export class BlogPostPage implements OnInit, OnDestroy {
   post: BlogPost | null = null;
   isLoading = true;
   isError = false;
+  private document = inject(DOCUMENT);
+  private destroyRef = inject(DestroyRef);
+  private ldScript: HTMLScriptElement | null = null;
 
   constructor(
     private route: ActivatedRoute,
@@ -37,7 +41,7 @@ export class BlogPostPage implements OnInit, OnDestroy {
 
     this.blogPostService
       .fetchPost(slug)
-      .pipe(catchError(() => of(null)))
+      .pipe(catchError(() => of(null)), takeUntilDestroyed(this.destroyRef))
       .subscribe((post) => {
         this.isLoading = false;
         if (!post) {
@@ -61,6 +65,7 @@ export class BlogPostPage implements OnInit, OnDestroy {
     this.meta.removeTag('name="twitter:card"');
     this.meta.removeTag('name="twitter:title"');
     this.meta.removeTag('name="twitter:description"');
+    this.ldScript?.remove();
   }
 
   goBack(): void {
@@ -77,5 +82,23 @@ export class BlogPostPage implements OnInit, OnDestroy {
     this.meta.updateTag({ name: 'twitter:card', content: 'summary' });
     this.meta.updateTag({ name: 'twitter:title', content: post.title });
     this.meta.updateTag({ name: 'twitter:description', content: post.summary });
+    this.meta.updateTag({ property: 'og:image', content: 'https://divakarvelagacherla.com/assets/og-image-blog.png' });
+    this.meta.updateTag({ name: 'twitter:image', content: 'https://divakarvelagacherla.com/assets/og-image-blog.png' });
+    const script = this.document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      'headline': post.title,
+      'datePublished': new Date(post.date).toISOString(),
+      'url': `https://divakarvelagacherla.com/blog/${post.slug}`,
+      'author': {
+        '@type': 'Person',
+        'name': 'Divakar Velagacherla',
+        'url': 'https://divakarvelagacherla.com',
+      },
+    });
+    this.document.head.appendChild(script);
+    this.ldScript = script;
   }
 }

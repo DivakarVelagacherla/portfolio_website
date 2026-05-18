@@ -1,4 +1,5 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, DestroyRef, inject } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { BlogPost } from '../../models/blog-post.model';
 import { BlogPostsService } from '../../services/blog-post';
 import { CommonModule } from '@angular/common';
@@ -17,6 +18,7 @@ export class BlogPostsComponent implements OnInit {
   currentPage: number = 0;
   pageSize: number = 6;
   pagedPosts: BlogPost[][] = [];
+  private destroyRef = inject(DestroyRef);
 
   constructor(
     private blogPostService: BlogPostsService,
@@ -24,7 +26,7 @@ export class BlogPostsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.blogPostService.getBlogPosts().subscribe((posts) => {
+    this.blogPostService.getBlogPosts().pipe(takeUntilDestroyed(this.destroyRef)).subscribe((posts) => {
       this.allBlogPosts = posts.sort((a, b) => b.date.getTime() - a.date.getTime());
       this.totalPages = Math.ceil(this.allBlogPosts.length / this.pageSize);
       this.pagedPosts = [];
