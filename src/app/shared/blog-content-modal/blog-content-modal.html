@@ -1,6 +1,6 @@
 <div class="modal-overlay" *ngIf="isOpen" (click)="onClose.emit()">
   <div class="modal-content" (click)="$event.stopPropagation()">
-    <button class="modal-close" (click)="onClose.emit()">×</button>
+    <button class="modal-close" (click)="onClose.emit()" aria-label="Close blog post">×</button>
     <div *ngIf="post">
       <div class="modal-date">{{post.date | date: 'MMM dd, yyyy'}}</div>
       <h2 class="modal-title">{{post.title}}</h2>

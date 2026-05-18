@@ -55,7 +55,7 @@
       </div>
     </div>
     <div class="controls-right">
-      <button class="pause-btn" (click)="pausePlay()">
+      <button class="pause-btn" (click)="pausePlay()" aria-label="Pause or play gallery and music">
         <span *ngIf="isPlaying">&#9646;&#9646;</span>
         <span *ngIf="!isPlaying">&#9654;</span>
       </button>
@@ -68,15 +68,15 @@
 <div class="lightbox-overlay" *ngIf="selectedCard" (click)="closeLightbox()">
   <div class="lightbox-content" (click)="$event.stopPropagation()">
 
-    <button class="lightbox-close" (click)="closeLightbox()">×</button>
+    <button class="lightbox-close" (click)="closeLightbox()" aria-label="Close lightbox">×</button>
 
-    <button class="lightbox-arrow lightbox-prev" (click)="lightboxPrev()">&#8592;</button>
+    <button class="lightbox-arrow lightbox-prev" (click)="lightboxPrev()" aria-label="Previous photo">&#8592;</button>
 
     <img [src]="getImageUrl(selectedCard.photo.key, 1600)"
          [alt]="selectedCard.photo.alt"
     >
 
-    <button class="lightbox-arrow lightbox-next" (click)="lightboxNext()">&#8594;</button>
+    <button class="lightbox-arrow lightbox-next" (click)="lightboxNext()" aria-label="Next photo">&#8594;</button>
 
     <div class="lightbox-meta" *ngIf="selectedCard.photo.location || selectedCard.photo.year">
       <span *ngIf="selectedCard.photo.location">{{ selectedCard.photo.location }}</span>
