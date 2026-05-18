@@ -1,4 +1,5 @@
-import { Component, OnDestroy, inject } from '@angular/core';
+import { Component, OnDestroy, AfterViewInit, inject } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { TitleSection } from '../../shared/title-section/title-section';
 import { ThemeService } from '../../services/theme.service';
 import { QuoteEngineering } from '../../core/quote-engineering/quote-engineering';
@@ -28,13 +29,25 @@ import { Footer } from '../../core/footer/footer';
   templateUrl: './engineering.html',
   styleUrl: './engineering.css',
 })
-export class Engineering {
+export class Engineering implements AfterViewInit, OnDestroy {
   private theme = inject(ThemeService);
+  private route = inject(ActivatedRoute);
+
   constructor() {
     this.theme.pageGradient.set(
       'linear-gradient(360deg, oklch(0.77 0.09 240.14) 30%, #028cdf, #1b8fe7, #5bb5cf)',
     );
   }
+
+  ngAfterViewInit(): void {
+    const anchor = this.route.snapshot.queryParamMap.get('scrollTo');
+    if (anchor) {
+      setTimeout(() => {
+        document.getElementById(anchor)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    }
+  }
+
   ngOnDestroy() {
     this.theme.pageGradient.set('');
   }

@@ -1,0 +1,194 @@
+.page-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 80px 40px 120px;
+  min-height: 100vh;
+}
+
+.back-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 40px;
+  transition: color 0.2s ease;
+}
+
+.back-link:hover {
+  color: var(--accent-color);
+}
+
+.post-date {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  margin-bottom: 16px;
+}
+
+.post-title {
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: -1.5px;
+  margin-bottom: 24px;
+  line-height: 1.2;
+  color: var(--color-text-primary);
+}
+
+
+.post-article {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--color-text-primary);
+}
+
+::ng-deep .post-article h1 {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 32px 0 16px;
+  letter-spacing: -0.5px;
+}
+
+::ng-deep .post-article h2 {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 28px 0 12px;
+  letter-spacing: -0.3px;
+}
+
+::ng-deep .post-article h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 24px 0 10px;
+}
+
+::ng-deep .post-article p {
+  margin-bottom: 16px;
+  line-height: 1.7;
+}
+
+::ng-deep .post-article ul,
+::ng-deep .post-article ol {
+  margin: 16px 0;
+  padding-left: 24px;
+}
+
+::ng-deep .post-article li {
+  margin-bottom: 8px;
+  line-height: 1.7;
+}
+
+::ng-deep .post-article strong {
+  font-weight: 600;
+}
+
+::ng-deep .post-article em {
+  font-style: italic;
+}
+
+::ng-deep .post-article code {
+  background: var(--card-bg-color);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-family: 'SF Mono', Monaco, monospace;
+  font-size: 14px;
+}
+
+::ng-deep .post-article pre {
+  background: var(--card-bg-color);
+  padding: 16px;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 16px 0;
+}
+
+::ng-deep .post-article pre code {
+  background: none;
+  padding: 0;
+}
+
+::ng-deep .post-article hr {
+  border: none;
+  border-top: 1px solid var(--color-line-break);
+  margin: 32px 0;
+}
+
+::ng-deep .post-article blockquote {
+  border-left: 3px solid var(--accent-color);
+  padding-left: 16px;
+  margin: 16px 0;
+  color: var(--color-text-secondary);
+}
+
+::ng-deep .post-article table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+}
+
+::ng-deep .post-article th,
+::ng-deep .post-article td {
+  padding: 10px 16px;
+  border: 1px solid var(--color-line-break);
+  text-align: left;
+}
+
+::ng-deep .post-article th {
+  background: var(--card-bg-color);
+  font-weight: 600;
+}
+
+::ng-deep .post-article a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+::ng-deep .post-article a:hover {
+  text-decoration: underline;
+}
+
+.state-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  gap: 24px;
+}
+
+.error-text {
+  font-size: 18px;
+  color: var(--color-text-secondary);
+}
+
+.loading-spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid var(--card-bg-color);
+  border-top-color: var(--accent-color);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+  .page-wrapper {
+    padding: 60px 24px 80px;
+  }
+
+  .post-title {
+    font-size: 32px;
+  }
+
+  ::ng-deep .post-article h2 {
+    font-size: 20px;
+  }
+}
