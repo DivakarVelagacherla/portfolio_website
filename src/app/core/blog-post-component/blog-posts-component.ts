@@ -4,11 +4,10 @@ import { BlogPostsService } from '../../services/blog-post';
 import { CommonModule } from '@angular/common';
 import { BlogPostCard } from '../../shared/blog-post-card/blog-post-card';
 import { PaginationComponent } from '../../shared/pagination/pagination';
-import { BlogContentModal } from '../../shared/blog-content-modal/blog-content-modal';
 
 @Component({
   selector: 'app-blog-posts-component',
-  imports: [CommonModule, BlogPostCard, PaginationComponent, BlogContentModal],
+  imports: [CommonModule, BlogPostCard, PaginationComponent],
   templateUrl: './blog-posts-component.html',
   styleUrl: './blog-posts-component.css',
 })
@@ -18,8 +17,6 @@ export class BlogPostsComponent implements OnInit {
   currentPage: number = 0;
   pageSize: number = 6;
   pagedPosts: BlogPost[][] = [];
-  isModalOpen: boolean = false;
-  selectedPost: BlogPost | null = null;
 
   constructor(
     private blogPostService: BlogPostsService,
@@ -36,19 +33,6 @@ export class BlogPostsComponent implements OnInit {
       }
       this.cdr.detectChanges();
     });
-  }
-
-  openPost(post: BlogPost): void {
-    this.blogPostService.fetchPost(post.slug).subscribe((fullPost) => {
-      this.selectedPost = fullPost;
-      this.isModalOpen = true;
-      this.cdr.detectChanges();
-    });
-  }
-
-  closePost(): void {
-    this.isModalOpen = false;
-    this.selectedPost = null;
   }
 
   trackBySlug(_index: number, post: BlogPost): string {

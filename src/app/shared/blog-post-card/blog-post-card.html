@@ -5,5 +5,5 @@
     <div class="blog-date">{{post.date | date: 'MMM dd, yyyy'}}</div>
     <div class="blog-title">{{post.title}}</div>
     <div class="blog-summary">{{post.summary}}</div>
-    <span class="tech-tag primary click-link" (click)="onReadMore.emit(post)">Read more →</span>
+    <a class="tech-tag primary click-link" [routerLink]="['/blog', post.slug]">Read more →</a>
 </div>

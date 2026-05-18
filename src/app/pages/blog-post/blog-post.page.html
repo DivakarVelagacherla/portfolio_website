@@ -1,0 +1,19 @@
+<div class="page-wrapper">
+
+  <div *ngIf="isLoading" class="state-container">
+    <div class="loading-spinner"></div>
+  </div>
+
+  <div *ngIf="isError && !isLoading" class="state-container">
+    <p class="error-text">Post not found.</p>
+    <a routerLink="/engineering" class="back-link">← Back to posts</a>
+  </div>
+
+  <article *ngIf="post && !isLoading">
+    <button class="back-link" (click)="goBack()">← Back to posts</button>
+    <div class="post-date">{{ post.date | date: 'MMM dd, yyyy' }}</div>
+    <h1 class="post-title">{{ post.title }}</h1>
+    <div class="post-article" [innerHTML]="post.content"></div>
+  </article>
+
+</div>

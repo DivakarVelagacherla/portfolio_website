@@ -5,8 +5,7 @@
         <div class="slider-pages" *ngFor="let page of pagedPosts">
             <div class="blog-post-grid">
                 <app-blog-post-card *ngFor="let post of page; trackBy: trackBySlug"
-                [post]="post" 
-                (onReadMore)="openPost($event)" />
+                [post]="post" />
             </div>
         </div>
     </div>
@@ -17,9 +16,3 @@
     [totalPages]="totalPages"
     (pageChange)="onClickPageDot($event)">
 </app-pagination>
-
-<app-blog-content-modal
-    [post]="selectedPost"
-    [isOpen]="isModalOpen"
-    (onClose)="closePost()">
-</app-blog-content-modal>
