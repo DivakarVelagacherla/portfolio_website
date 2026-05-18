@@ -1,4 +1,5 @@
 import { Component, OnDestroy, AfterViewInit, inject } from '@angular/core';
+import { Title, Meta } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { TitleSection } from '../../shared/title-section/title-section';
 import { ThemeService } from '../../services/theme.service';
@@ -30,10 +31,14 @@ import { Footer } from '../../core/footer/footer';
   styleUrl: './engineering.css',
 })
 export class Engineering implements AfterViewInit, OnDestroy {
+  private title = inject(Title);
+  private meta = inject(Meta);
   private theme = inject(ThemeService);
   private route = inject(ActivatedRoute);
 
   constructor() {
+    this.title.setTitle('Engineering — Divakar Velagacherla');
+    this.meta.updateTag({ name: 'description', content: 'Java, Spring Boot, AWS engineer. Angular portfolio with live GitHub stats and blog posts.' });
     this.theme.pageGradient.set(
       'linear-gradient(360deg, oklch(0.77 0.09 240.14) 30%, #028cdf, #1b8fe7, #5bb5cf)',
     );

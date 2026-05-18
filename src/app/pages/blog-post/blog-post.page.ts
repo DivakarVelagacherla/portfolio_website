@@ -77,5 +77,7 @@ export class BlogPostPage implements OnInit, OnDestroy {
     this.meta.updateTag({ name: 'twitter:card', content: 'summary' });
     this.meta.updateTag({ name: 'twitter:title', content: post.title });
     this.meta.updateTag({ name: 'twitter:description', content: post.summary });
+    this.meta.updateTag({ property: 'og:image', content: 'https://divakarvelagacherla.com/assets/og-image-blog.png' });
+    this.meta.updateTag({ name: 'twitter:image', content: 'https://divakarvelagacherla.com/assets/og-image-blog.png' });
   }
 }
