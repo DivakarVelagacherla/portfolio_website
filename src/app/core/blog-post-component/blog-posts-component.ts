@@ -1,10 +1,12 @@
-import { Component, OnInit, ChangeDetectorRef, DestroyRef, inject } from '@angular/core';
+import { Component, OnInit, HostListener, ChangeDetectorRef, DestroyRef, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { BlogPost } from '../../models/blog-post.model';
 import { BlogPostsService } from '../../services/blog-post';
 import { CommonModule } from '@angular/common';
 import { BlogPostCard } from '../../shared/blog-post-card/blog-post-card';
 import { PaginationComponent } from '../../shared/pagination/pagination';
+
+const MOBILE_BREAKPOINT = 768;
 
 @Component({
   selector: 'app-blog-posts-component',
@@ -25,16 +27,31 @@ export class BlogPostsComponent implements OnInit {
     private cdr: ChangeDetectorRef,
   ) {}
 
+  @HostListener('window:resize')
+  onResize(): void {
+    const newPageSize = window.innerWidth <= MOBILE_BREAKPOINT ? 3 : 6;
+    if (newPageSize !== this.pageSize) {
+      this.pageSize = newPageSize;
+      this.currentPage = 0;
+      this.paginate();
+    }
+  }
+
   ngOnInit(): void {
+    this.pageSize = window.innerWidth <= MOBILE_BREAKPOINT ? 3 : 6;
     this.blogPostService.getBlogPosts().pipe(takeUntilDestroyed(this.destroyRef)).subscribe((posts) => {
       this.allBlogPosts = posts.sort((a, b) => b.date.getTime() - a.date.getTime());
-      this.totalPages = Math.ceil(this.allBlogPosts.length / this.pageSize);
-      this.pagedPosts = [];
-      for (let i = 0; i < this.allBlogPosts.length; i += this.pageSize) {
-        this.pagedPosts.push(this.allBlogPosts.slice(i, i + this.pageSize));
-      }
-      this.cdr.detectChanges();
+      this.paginate();
     });
+  }
+
+  private paginate(): void {
+    this.totalPages = Math.ceil(this.allBlogPosts.length / this.pageSize);
+    this.pagedPosts = [];
+    for (let i = 0; i < this.allBlogPosts.length; i += this.pageSize) {
+      this.pagedPosts.push(this.allBlogPosts.slice(i, i + this.pageSize));
+    }
+    this.cdr.detectChanges();
   }
 
   trackBySlug(_index: number, post: BlogPost): string {
