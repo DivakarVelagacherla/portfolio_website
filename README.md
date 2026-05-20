@@ -1,59 +1,78 @@
-# Portfolio
+# divakarvelagacherla.com
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.3.
+> Not just a portfolio. A reflection of how I think.
 
-## Development server
+Live → https://www.divakarvelagacherla.com
 
-To start a local development server, run:
+---
+
+## Why this exists
+
+Every developer has a portfolio. I didn't — not because I was lazy, but because I kept asking: _what's the point?_
+
+I built one when I figured out what I actually wanted it to say. Not projects. Not tech stacks. How I think. What drives my decisions. And the other side of me no resume has ever captured.
+
+---
+
+## What's inside
+
+|                 |                                                          |
+| --------------- | -------------------------------------------------------- |
+| **Engineering** | Philosophy, live GitHub stats, blog posts, tech stack    |
+| **Photography** | 70+ photos, Apple-style gallery, ambient music, lightbox |
+| **Blog**        | Thoughts on engineering, craft and curiosity             |
+
+---
+
+## How it's built
+
+| Layer              | Choice                    | Why                                             |
+| ------------------ | ------------------------- | ----------------------------------------------- |
+| Framework          | Angular                   | Learned it deeply while building something real |
+| Hosting            | GitHub Pages              | Simple, free, auto-deploys on push              |
+| CI/CD              | GitHub Actions            | Stats and blog posts update automatically       |
+| Photos             | Cloudflare R2             | Zero egress fees for a photo-heavy portfolio    |
+| Image optimization | Cloudflare Image Resizing | On-the-fly WebP conversion, no preprocessing    |
+
+---
+
+## Things I'm proud of
+
+**Custom gallery slider** — No library. Two rows, card recycling for infinite scroll, step-based animation with different speeds per row creating visual depth. Apple easing throughout.
+
+**Live stats** — GitHub Actions workflow runs on every push, writes fresh stats to `stats.json`. No backend, no cron job.
+
+**Blog from GitHub** — Posts live in a separate repo as markdown files. Fetched via GitHub Contents API, parsed client-side. Adding a post = pushing a markdown file.
+
+**Ambient music** — Photography page plays a subtle looping track. Starts on first user interaction (browser policy). Pause button controls both the gallery animation and music together.
+
+**Scroll animations** — Custom `IntersectionObserver` directive. One attribute on any element, it animates in on scroll. Animate once, stays visible — no jumping.
+
+**Randomized gallery** — Fisher-Yates shuffle on every page load. 70 photos, different order every visit.
+
+---
+
+## Philosophy
+
+> "Why over what. Every single time."
+
+Every technology choice in this project has a reason. I didn't pick Angular because it's popular. I didn't use Cloudflare R2 because everyone does. I understood the trade-offs first, then decided.
+
+That instinct is the same one that makes me a better engineer — and a better photographer.
+
+---
+
+## Running locally
 
 ```bash
+git clone git@github.com:DivakarVelagacherla/portfolio_website.git
+cd portfolio_website
+npm install
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
+## Contact
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+[divakarvelagacherla.com](https://divakarvelagacherla.com) · [LinkedIn](https://linkedin.com/in/divakarvelagacherla) · [Instagram](https://instagram.com/divakar_velagacherla)
