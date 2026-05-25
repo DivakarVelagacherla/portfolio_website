@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Experience } from '../models/experience.model';
 import { Education } from '../models/education.model';
 import { TechGroup } from '../models/tech-stack.model';
+import { TypeofExpression } from '@angular/compiler';
 
 @Injectable({
   providedIn: 'root',
@@ -135,6 +136,7 @@ export class ExperienceService {
         { name: 'REST APIs', primary: true },
         { name: 'GraphQL', primary: true },
         { name: 'Enterprise Architecture', primary: false },
+        { name: 'OpenAPI 3.0', primary: true },
       ],
     },
     {
