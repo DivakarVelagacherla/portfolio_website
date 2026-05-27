@@ -1,4 +1,12 @@
-import { Component, OnInit, OnDestroy, ChangeDetectorRef, HostListener, DestroyRef, inject } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  OnDestroy,
+  ChangeDetectorRef,
+  HostListener,
+  DestroyRef,
+  inject,
+} from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { CommonModule } from '@angular/common';
 import { PhotoService } from '../../services/photo-service';
@@ -37,39 +45,42 @@ export class GalleryComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.audio = new Audio('https://api.divakarvelagacherla.com/audio/ambient.mp3');
     this.audio.loop = true;
-    this.audio.volume = 0.035;
+    this.audio.volume = 0.01;
     this.audio.play().catch(() => {
       this.startOnInteraction();
     });
     document.addEventListener('visibilitychange', this.handleVisibility);
 
-    this.photoService.fetchPhotos().pipe(takeUntilDestroyed(this.destroyRef)).subscribe((data: any) => {
-      const row1Photos = this.shuffle(data.gallery.filter((p: Photo) => p.row === 1));
-      const row2Photos = this.shuffle(data.gallery.filter((p: Photo) => p.row === 2));
+    this.photoService
+      .fetchPhotos()
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe((data: any) => {
+        const row1Photos = this.shuffle(data.gallery.filter((p: Photo) => p.row === 1));
+        const row2Photos = this.shuffle(data.gallery.filter((p: Photo) => p.row === 2));
 
-      this.row1Cards = row1Photos.map((photo: Photo, index: number) => ({
-        photo,
-        progress: index,
-        noTransition: false,
-      }));
+        this.row1Cards = row1Photos.map((photo: Photo, index: number) => ({
+          photo,
+          progress: index,
+          noTransition: false,
+        }));
 
-      this.row2Cards = row2Photos.map((photo: Photo, index: number) => ({
-        photo,
-        progress: index,
-        noTransition: false,
-      }));
+        this.row2Cards = row2Photos.map((photo: Photo, index: number) => ({
+          photo,
+          progress: index,
+          noTransition: false,
+        }));
 
-      this.allCards = [...row1Photos, ...row2Photos].map((photo: Photo) => ({
-        photo,
-        progress: 0,
-        noTransition: false,
-      }));
+        this.allCards = [...row1Photos, ...row2Photos].map((photo: Photo) => ({
+          photo,
+          progress: 0,
+          noTransition: false,
+        }));
 
-      this.cdr.detectChanges();
-      this.next();
-      this.next();
-      this.startInterval();
-    });
+        this.cdr.detectChanges();
+        this.next();
+        this.next();
+        this.startInterval();
+      });
   }
 
   handleVisibility = () => {
@@ -148,7 +159,7 @@ export class GalleryComponent implements OnInit, OnDestroy {
   }
 
   fadeIn() {
-    const targetVolume = 0.035;
+    const targetVolume = 0.01;
     const duration = 2000; // 2 seconds fade in
     const steps = 30;
     const stepTime = duration / steps;
