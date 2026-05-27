@@ -42,10 +42,18 @@ export class GalleryComponent implements OnInit, OnDestroy {
     private cdr: ChangeDetectorRef,
   ) {}
 
+  private isMobile(): boolean {
+    return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  }
+
+  private targetVolume(): number {
+    return this.isMobile() ? 0.002 : 0.01;
+  }
+
   ngOnInit() {
     this.audio = new Audio('https://api.divakarvelagacherla.com/audio/ambient.mp3');
     this.audio.loop = true;
-    this.audio.volume = 0.01;
+    this.audio.volume = this.targetVolume();
     this.audio.play().catch(() => {
       this.startOnInteraction();
     });
@@ -159,7 +167,7 @@ export class GalleryComponent implements OnInit, OnDestroy {
   }
 
   fadeIn() {
-    const targetVolume = 0.01;
+    const targetVolume = this.targetVolume();
     const duration = 2000; // 2 seconds fade in
     const steps = 30;
     const stepTime = duration / steps;
