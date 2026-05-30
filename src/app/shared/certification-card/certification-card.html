@@ -1,0 +1,26 @@
+<div class="cert-card">
+    <div class="cert-image-wrapper">
+        <img class="cert-image" [src]="certification.imageUrl" [alt]="certification.name" />
+        <div class="cert-issuer-badge">{{ certification.issuer }}</div>
+    </div>
+    <div class="cert-body">
+        <div class="cert-name">{{ certification.name }}</div>
+        <div class="cert-dates">
+            Issued {{ certification.issuedDate }}
+        </div>
+        <p class="cert-description">{{ certification.description }}</p>
+        <!-- <div class="cert-tags cert-skills">
+            <span class="cert-tag" *ngFor="let skill of certification.skills">{{ skill }}</span>
+        </div> -->
+        <div class="cert-footer">
+            <span class="cert-expiry-label" *ngIf="certification.expiryDate">Expires {{ certification.expiryDate }}</span>
+            <span class="cert-expiry-label" *ngIf="!certification.expiryDate">No Expiry</span>
+            <a class="verify-link"
+                [href]="certification.verifyUrl"
+                target="_blank"
+                rel="noopener noreferrer">
+                Verify credential ↗
+            </a>
+        </div>
+    </div>
+</div>

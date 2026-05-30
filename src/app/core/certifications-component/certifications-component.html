@@ -1,0 +1,20 @@
+<!-- <div class="section-eyebrow">Credentials</div> -->
+<div class="experience-heading" id="Certifications">Certifications</div>
+<div class="certifications-slider-wrapper"
+    (scroll)="onSliderScroll($event)">
+    <div class="slider-tracker">
+        <div class="slider-pages" *ngFor="let page of pagedCertifications">
+            <div class="certification-grid">
+                <app-certification-card
+                    *ngFor="let cert of page; trackBy: trackByCertName"
+                    [certification]="cert" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-pagination
+    [currentPage]="currentPage"
+    [totalPages]="totalPages"
+    (pageChange)="onClickPageDot($event)">
+</app-pagination>
