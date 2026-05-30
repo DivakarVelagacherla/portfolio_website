@@ -11,6 +11,7 @@ import { TechStack } from '../../core/tech-stack/tech-stack';
 import { WorkExperience } from '../../core/work-experience/work-experience';
 import { EducationComponent } from '../../core/education-component/education-component';
 import { BlogPostsComponent } from '../../core/blog-post-component/blog-posts-component';
+import { CertificationsComponent } from '../../core/certifications-component/certifications-component';
 import { Footer } from '../../core/footer/footer';
 
 @Component({
@@ -24,6 +25,7 @@ import { Footer } from '../../core/footer/footer';
     TechStack,
     WorkExperience,
     EducationComponent,
+    CertificationsComponent,
     BlogPostsComponent,
     Footer,
   ],
