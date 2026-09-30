@@ -1,0 +1,28 @@
+.sticky-header-stack {
+  position: sticky;
+  top: 0;
+  z-index: 1002;
+  background-color: var(--bg-color-white);
+}
+
+.page-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 24px;
+  min-height: 49px;
+}
+
+.page-header-bar-title {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+  color: var(--color-text-primary);
+  text-align: center;
+}
+
+@media (max-width: 786px) {
+  .page-header-bar-title {
+    font-size: 14px;
+  }
+}

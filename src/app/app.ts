@@ -3,6 +3,7 @@ import { Router, NavigationEnd, RouterOutlet } from '@angular/router';
 import { filter, take } from 'rxjs/operators';
 import { LandingHeader } from './shared/landing-header/landing-header';
 import { ConfirmDialogComponent } from './shared/confirm-dialog/confirm-dialog';
+import { ThemeService } from './services/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,8 @@ import { ConfirmDialogComponent } from './shared/confirm-dialog/confirm-dialog';
   styleUrl: './app.css',
 })
 export class App {
+  theme = inject(ThemeService);
+
   constructor() {
     const router = inject(Router);
     router.events

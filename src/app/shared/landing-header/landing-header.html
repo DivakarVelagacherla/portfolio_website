@@ -26,7 +26,7 @@
         <div class="landing-nav">
             <a routerLink="/engineering" [style.--page-gradient]="theme.pageGradient()" routerLinkActive="link-active">Engineering</a>
             <a routerLink="/photography" [style.--page-gradient]="theme.pageGradient()" routerLinkActive="link-active">Photography</a>
-            <!-- <a routerLink="/learn" [style.--page-gradient]="theme.pageGradient()" routerLinkActive="link-active">Learn</a> -->
+            <a routerLink="/learn" [style.--page-gradient]="theme.pageGradient()" routerLinkActive="link-active">Learn</a>
         </div>
 
         <button class="hamburger" (click)="toggleMenu()" aria-label="Open navigation menu">
@@ -38,7 +38,10 @@
     <div class="mobile-nav" [class.open]="isMenuOpen">
         <a routerLink="/engineering" [style.--page-gradient]="theme.pageGradient()" routerLinkActive="link-active" (click)="toggleMenu()">Engineering</a>
         <a routerLink="/photography" [style.--page-gradient]="theme.pageGradient()" routerLinkActive="link-active" (click)="toggleMenu()">Photography</a>
+        <a routerLink="/learn" [style.--page-gradient]="theme.pageGradient()" routerLinkActive="link-active" (click)="toggleMenu()">Learn</a>
     </div>
 </header>
-<div class="line-break"></div>
+<div class="line-break">
+    <div class="progress-fill" *ngIf="theme.readingProgress() !== null" [style.width.%]="theme.readingProgress()"></div>
+</div>
 <div class="page-transparent" [class.open]="isMenuOpen" (click)="toggleMenu()"></div>

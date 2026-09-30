@@ -1,1 +1,90 @@
-<p>learn works!</p>
+<div class="learn-layout" *ngIf="!navError; else errorState">
+  <div class="state-container" *ngIf="navLoading">
+    <div class="loading-spinner"></div>
+  </div>
+
+  <ng-container *ngIf="!navLoading">
+    <div class="sidebar-wrap" [class.collapsed]="sidebarCollapsed">
+      <nav class="sidebar">
+        <ul class="nav-books">
+          <li *ngFor="let book of nav">
+            <div class="book-header" (click)="toggleNode(book)">
+              <svg class="chevron" [class.open]="book.expanded" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="9 6 15 12 9 18" />
+              </svg>
+              <span>{{ book.title }}</span>
+            </div>
+            <div class="nav-children" *ngIf="book.expanded">
+              <ng-container
+                *ngTemplateOutlet="nodeList; context: { nodes: book.children, bookSlug: book.slug }"
+              ></ng-container>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <button class="sidebar-toggle" (click)="toggleSidebar()" title="Toggle sidebar">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polyline points="15 18 9 12 15 6" />
+        </svg>
+      </button>
+    </div>
+
+    <main class="content-col">
+      <div class="content-meta" *ngIf="currentBook">
+        <span>{{ currentBook.title }}</span>
+        <span class="dot" *ngIf="currentChapter?.description"></span>
+        <span *ngIf="currentChapter?.description">{{ currentChapter?.description }}</span>
+      </div>
+
+      <div class="state-container" *ngIf="contentLoading">
+        <div class="loading-spinner"></div>
+      </div>
+
+      <div class="article" #articleBody [innerHTML]="chapterHtml" *ngIf="!contentLoading"></div>
+    </main>
+
+    <aside class="rail-wrap" *ngIf="onThisPage.length">
+      <div class="rail">
+        <div class="rail-label">On this page</div>
+        <ul>
+          <li *ngFor="let entry of onThisPage">
+            <a href="#" (click)="scrollToHeading(entry.id, $event)">{{ entry.text }}</a>
+          </li>
+        </ul>
+      </div>
+    </aside>
+  </ng-container>
+</div>
+
+<ng-template #errorState>
+  <div class="state-container">
+    <p class="error-text">Couldn't load notes right now.</p>
+  </div>
+</ng-template>
+
+<ng-template #nodeList let-nodes="nodes" let-bookSlug="bookSlug">
+  <ul class="nav-list">
+    <li *ngFor="let node of nodes">
+      <a
+        *ngIf="node.path"
+        class="nav-leaf"
+        [routerLink]="['/learn', bookSlug, node.slug]"
+        routerLinkActive="active"
+      >{{ node.title }}</a>
+
+      <ng-container *ngIf="!node.path">
+        <div class="nav-group-header" (click)="toggleNode(node)">
+          <svg class="chevron" [class.open]="node.expanded" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+            <polyline points="9 6 15 12 9 18" />
+          </svg>
+          <span>{{ node.title }}</span>
+        </div>
+        <div class="nav-children" *ngIf="node.expanded">
+          <ng-container
+            *ngTemplateOutlet="nodeList; context: { nodes: node.children, bookSlug: bookSlug }"
+          ></ng-container>
+        </div>
+      </ng-container>
+    </li>
+  </ul>
+</ng-template>
