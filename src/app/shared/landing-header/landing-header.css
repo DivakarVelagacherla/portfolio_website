@@ -1,7 +1,4 @@
 :host{
-    position: sticky;
-    top: 0;
-    z-index: 1002;
     display: block;
 }
 
@@ -77,6 +74,21 @@
     transform: translateY(0);
     opacity: 1;
     pointer-events: all;
+}
+
+.line-break {
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background-image: var(--gradient-apple-teal);
+    transition: width 0.1s linear;
 }
 
 .page-transparent {

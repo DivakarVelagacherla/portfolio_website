@@ -1,3 +1,10 @@
-<app-landing-header/>
+<div class="sticky-header-stack">
+  <app-landing-header/>
+  @if (theme.pageHeaderTitle() !== null) {
+    <div class="page-header-bar">
+      <div class="page-header-bar-title">{{ theme.pageHeaderTitle() }}</div>
+    </div>
+  }
+</div>
 <router-outlet />
 <app-confirm-dialog/>
