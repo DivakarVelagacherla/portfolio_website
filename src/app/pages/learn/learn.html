@@ -1,9 +1,54 @@
-<div class="learn-layout" *ngIf="!navError; else errorState">
+<section
+  class="landing"
+  [style.display]="viewState === 'landing' ? 'flex' : 'none'"
+  [class.leaving]="landingLeaving"
+  [class.instant]="landingInstant"
+  *ngIf="!navError"
+>
   <div class="state-container" *ngIf="navLoading">
     <div class="loading-spinner"></div>
   </div>
 
   <ng-container *ngIf="!navLoading">
+    <div class="sequence-stage" *ngIf="sequencePhase === 'title'">
+      <h1 class="sequence-title">The goal was never to memorize solutions.</h1>
+    </div>
+
+    <div class="sequence-stage" *ngIf="sequencePhase === 'subtitle'">
+      <p class="sequence-subtitle">It's to understand problems deeply enough that the solutions become obvious.</p>
+    </div>
+
+    <div class="sequence-stage" *ngIf="sequencePhase === 'badge'">
+      <div class="sequence-badge">LEARNING</div>
+    </div>
+
+    <div class="landing-inner" [class.instant]="landingInstant" *ngIf="sequencePhase === 'final'">
+      <div class="landing-eyebrow">LEARNING</div>
+      <h1 class="landing-title">The goal was never to memorize solutions.</h1>
+      <p class="landing-sub">It's to understand problems deeply enough that the solutions become obvious.</p>
+
+      <div class="landing-books">
+        <button
+          class="landing-book-card"
+          *ngFor="let summary of bookSummaries"
+          (click)="startReading(summary.node.slug)"
+        >
+          <div class="landing-book-title">{{ summary.node.title }}</div>
+          <div class="landing-book-meta">{{ summary.chapterCount }} chapters</div>
+        </button>
+      </div>
+
+      <button class="landing-cta" (click)="startReading()">Start Reading <span class="arrow">→</span></button>
+    </div>
+  </ng-container>
+</section>
+
+<div
+  class="confluence-wrap"
+  [style.display]="viewState === 'reader' ? 'block' : 'none'"
+  [class.active]="readerEntering"
+>
+  <div class="learn-layout">
     <div class="sidebar-wrap" [class.collapsed]="sidebarCollapsed">
       <nav class="sidebar">
         <ul class="nav-books">
@@ -30,6 +75,8 @@
     </div>
 
     <main class="content-col">
+      <button class="back-to-overview" (click)="backToOverview()">← Overview</button>
+
       <div class="content-meta" *ngIf="currentBook">
         <span>{{ currentBook.title }}</span>
         <span class="dot" *ngIf="currentChapter?.description"></span>
@@ -53,14 +100,12 @@
         </ul>
       </div>
     </aside>
-  </ng-container>
+  </div>
 </div>
 
-<ng-template #errorState>
-  <div class="state-container">
-    <p class="error-text">Couldn't load notes right now.</p>
-  </div>
-</ng-template>
+<div class="state-container" *ngIf="navError">
+  <p class="error-text">Couldn't load notes right now.</p>
+</div>
 
 <ng-template #nodeList let-nodes="nodes" let-bookSlug="bookSlug">
   <ul class="nav-list">

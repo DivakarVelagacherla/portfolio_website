@@ -1,5 +1,21 @@
-import { Routes } from '@angular/router';
+import { Routes, UrlMatchResult, UrlSegment } from '@angular/router';
 import { Home } from './pages/home/home';
+
+// A single route config object matching /learn, /learn/:book, and /learn/:book/:chapter alike.
+// This matters beyond routing semantics: Angular's default RouteReuseStrategy decides whether to
+// reuse a component instance (vs. destroy + recreate it) by comparing route config objects with
+// ===. Three separate `path: 'learn'` / `path: 'learn/:book'` / `path: 'learn/:book/:chapter'`
+// entries are three different objects, so navigating between landing and a chapter would destroy
+// and recreate the Learn component every time — wiping all of its state (fetched nav tree,
+// animation flags) along with it. One matcher keeps it the same route, so the component instance
+// — and everything it's tracking — survives navigation within /learn.
+function learnMatcher(segments: UrlSegment[]): UrlMatchResult | null {
+  if (segments.length === 0 || segments[0].path !== 'learn' || segments.length > 3) return null;
+  const posParams: { [key: string]: UrlSegment } = {};
+  if (segments[1]) posParams['book'] = segments[1];
+  if (segments[2]) posParams['chapter'] = segments[2];
+  return { consumed: segments, posParams };
+}
 
 export const routes: Routes = [
   {
@@ -17,15 +33,7 @@ export const routes: Routes = [
       import('./pages/photography/photography').then((component) => component.Photography),
   },
   {
-    path: 'learn',
-    loadComponent: () => import('./pages/learn/learn').then((component) => component.Learn),
-  },
-  {
-    path: 'learn/:book',
-    loadComponent: () => import('./pages/learn/learn').then((component) => component.Learn),
-  },
-  {
-    path: 'learn/:book/:chapter',
+    matcher: learnMatcher,
     loadComponent: () => import('./pages/learn/learn').then((component) => component.Learn),
   },
   {

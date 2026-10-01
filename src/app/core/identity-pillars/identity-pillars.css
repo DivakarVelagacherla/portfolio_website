@@ -52,6 +52,12 @@
     line-height: 1.4;
 }
 
+.pillar-line sup {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--color-text-secondary);
+}
+
 .pillar-stat {
     font-size: 13px;
     color: var(--color-text-secondary);
