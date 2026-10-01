@@ -7,25 +7,32 @@
     justify-content: space-evenly;
 }
 
-.cta-logo {
-  height: 36px;
-  width: 36px;
-  border-radius: 8px;
-  transition: transform 0.3s ease;
-}
-
-.cta-logo:hover{
-  transform: scale(1.4);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  border-radius: 8px;
-}
-
 /* Target the Angular component tags instead */
 .cta-container a {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--tag-bg);
+  color: var(--color-text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   opacity: 0;
   transform: translateY(20px);
   --fade-distance: 20px;
   animation: slideUp 0.6s ease forwards 1s;
+  transition: background-color 1s ease, color 1s ease, transform 0.2s ease;
+}
+
+.cta-container a:hover {
+  background: var(--tag-bg-primary);
+  color: var(--tag-color);
+  transform: translateY(-2px);
+}
+
+.cta-container a svg {
+  width: 19px;
+  height: 19px;
 }
 
 /* Staggered delays for each component */
@@ -35,18 +42,19 @@
 .cta-container a:nth-child(5) {animation-delay: 1.50s;}
 .cta-container a:nth-child(6) {animation-delay: 1.60s;}
 
-/* .cta-icon-github {
-  filter: invert(90%);
-} */
-
 @media (max-width: 768px) {
   .cta-container {
     margin-left: 15px;
     margin-right: 15px;
   }
 
-  .cta-logo {
-    height: 28px;
-    width: 28px;
+  .cta-container a {
+    width: 36px;
+    height: 36px;
+  }
+
+  .cta-container a svg {
+    width: 16px;
+    height: 16px;
   }
 }

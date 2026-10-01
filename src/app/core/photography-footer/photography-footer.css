@@ -40,7 +40,7 @@
   font-weight: 300;
   color: var(--color-text-secondary);
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: color 1s ease;
   cursor: pointer;
 }
 
