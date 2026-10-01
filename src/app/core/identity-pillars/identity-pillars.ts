@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { StatsService } from '../../services/stats';
 
 @Component({
   selector: 'app-identity-pillars',
@@ -6,4 +7,6 @@ import { Component } from '@angular/core';
   templateUrl: './identity-pillars.html',
   styleUrl: './identity-pillars.css',
 })
-export class IdentityPillars {}
+export class IdentityPillars {
+  constructor(public statsService: StatsService) {}
+}

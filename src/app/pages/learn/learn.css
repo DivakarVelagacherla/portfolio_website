@@ -4,6 +4,229 @@
   --rail-width: 170px;
 }
 
+/* ---------- Landing ---------- */
+
+.landing {
+  min-height: calc(100vh - var(--learn-header-offset, 98px));
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.landing.leaving {
+  opacity: 0;
+  transform: translateY(-30px);
+  pointer-events: none;
+}
+
+/* Returning via "← Overview" — the leaving→visible flip shouldn't itself animate either. */
+.landing.instant {
+  transition: none;
+}
+
+.landing-inner {
+  max-width: 640px;
+  text-align: center;
+  padding: 24px;
+  margin: 0 auto;
+}
+
+/* ---------- Solo sequence stages (title alone, then subtitle alone) ---------- */
+
+@keyframes sequenceInOut {
+  0% { opacity: 0; transform: translateY(22px); }
+  45% { opacity: 1; transform: translateY(0); }
+  55% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-22px); }
+}
+
+.sequence-stage {
+  max-width: 720px;
+  text-align: center;
+  padding: 24px;
+  margin: 0 auto;
+}
+
+.sequence-title {
+  font-size: clamp(32px, 6vw, 52px);
+  font-weight: 700;
+  letter-spacing: -1px;
+  line-height: 1.2;
+  color: var(--color-text-primary);
+  animation: sequenceInOut 4.2s ease-in-out forwards;
+}
+
+.sequence-subtitle {
+  font-size: clamp(20px, 3.5vw, 30px);
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--color-text-secondary);
+  animation: sequenceInOut 4.2s ease-in-out forwards;
+}
+
+/* The badge fades in and stays — it never fades back out, it glides into place instead
+   (see transitionBadgeToFinal() in the component, a FLIP-style position transition). */
+@keyframes badgeFadeIn {
+  0% { opacity: 0; transform: translateY(16px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.sequence-badge {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: var(--accent-color);
+  opacity: 0;
+  animation: badgeFadeIn 2s ease-in-out forwards;
+}
+
+/* ---------- Final composed view ---------- */
+
+.landing-eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: var(--accent-color);
+}
+
+@keyframes fadeInPlace {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.landing-title,
+.landing-sub,
+.landing-books,
+.landing-cta {
+  opacity: 0;
+  animation: fadeInPlace 2s ease 1.2s forwards;
+}
+
+/* Returning via "← Overview" skips the whole reveal sequence — show everything as-is. */
+.landing-inner.instant .landing-title,
+.landing-inner.instant .landing-sub,
+.landing-inner.instant .landing-books,
+.landing-inner.instant .landing-cta {
+  opacity: 1;
+  animation: none;
+}
+
+.landing-title {
+  font-size: clamp(32px, 6vw, 52px);
+  font-weight: 700;
+  letter-spacing: -1px;
+  line-height: 1.15;
+  margin: 14px 0 16px;
+  color: var(--color-text-primary);
+}
+
+.landing-sub {
+  font-size: clamp(15px, 2vw, 18px);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+.landing-books {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin: 40px 0 36px;
+  flex-wrap: wrap;
+}
+
+.landing-book-card {
+  width: 160px;
+  border: 1px solid var(--color-line-break);
+  background: var(--card-bg-color);
+  border-radius: 16px;
+  padding: 22px 16px;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: center;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.landing-book-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent-color);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+}
+
+.landing-book-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+
+.landing-book-meta {
+  font-size: 11px;
+  color: var(--color-text-secondary);
+}
+
+.landing-cta {
+  border: none;
+  background: var(--accent-color);
+  color: white;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 14px 28px;
+  border-radius: 980px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.landing-cta:hover {
+  transform: scale(1.04);
+  box-shadow: 0 8px 20px rgba(0,113,227,0.3);
+}
+
+.landing-cta .arrow {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.landing-cta:hover .arrow {
+  transform: translateX(3px);
+}
+
+/* ---------- Confluence wrapper (reader) ---------- */
+
+.confluence-wrap {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.confluence-wrap.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.back-to-overview {
+  display: inline-flex;
+  align-items: center;
+  border: none;
+  background: var(--tag-bg);
+  color: var(--color-text-secondary);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 7px 14px;
+  border-radius: 980px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.back-to-overview:hover {
+  background: var(--hover-bg-color);
+  color: var(--color-text-primary);
+}
+
 /* ---------- Layout ---------- */
 
 .learn-layout {
