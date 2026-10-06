@@ -61,7 +61,24 @@ export class LearningService {
   }
 
   getChapterHtml(path: string): Observable<string> {
-    return this.fetchRaw(path).pipe(map((markdown) => marked(markdown) as string));
+    const directory = path.includes('/') ? path.slice(0, path.lastIndexOf('/')) : '';
+    return this.fetchRaw(path).pipe(
+      map((markdown) => this.resolveImagePaths(marked(markdown) as string, directory)),
+    );
+  }
+
+  /**
+   * Chapter markdown links to its images with paths relative to its own file
+   * (e.g. `![diagram](url-shortener.png)`), which only resolve correctly on GitHub itself.
+   * Rewrite those to absolute raw.githubusercontent.com URLs so they render here too.
+   */
+  private resolveImagePaths(html: string, directory: string): string {
+    return html.replace(/(<img[^>]+src=")([^"]+)(")/g, (match, prefix, src, suffix) => {
+      if (/^([a-z]+:)?\/\//i.test(src) || src.startsWith('/')) return match;
+      const relativePath = src.replace(/^\.\//, '');
+      const resolved = directory ? `${directory}/${relativePath}` : relativePath;
+      return `${prefix}${this.baseUrl}/${resolved}${suffix}`;
+    });
   }
 
   private buildBookNode(slug: string, folder: string, markdown: string): LearningNode {
